@@ -122,7 +122,7 @@ function Login ({ handelclose, settab }) {
             >
               Ghi nhớ đăng nhập
             </Checkbox>
-            <Link to={'/quenmatkhau'}>Quên mật khẩu?</Link>
+            <Link to={'/quenmatkhau'} style={{color:'#f7931e'}}>Quên mật khẩu?</Link>
           </div>
 
           <button type='submit' className='btn_login_dangnhap'>

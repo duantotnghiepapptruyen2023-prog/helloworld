@@ -105,7 +105,8 @@
     }
 
     .btn_tab_item_active {
-        background-color: var(--vien-color) !important;
+        background: linear-gradient(180deg, #f7931e -1.06%, #dd5906 102.84%),
+            var(--color-primary-color-active, #f37d25) !important;
         color: white !important;
     }
 

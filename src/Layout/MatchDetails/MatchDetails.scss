@@ -837,28 +837,6 @@
   padding: 10px 0;
 }
 
-.bets-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  padding: 0 12px;
-}
-
-.bet-block {
-  position: relative;
-  background: #1e293b;
-  border-radius: 20px;
-  overflow: hidden;
-  // border: 2px solid transparent;
-  background-clip: padding-box;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-
-  &.vip-block {
-    border-image: linear-gradient(45deg, #45d114, #22c55e) 1;
-    background: linear-gradient(to bottom, #1a2e1a, #0f172a);
-  }
-}
-
 .vip-tag {
   position: absolute;
   top: -12px;
@@ -880,8 +858,6 @@
 }
 
 .bet-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
   background: rgba(15, 23, 42, 0.4);
   border-radius: 18px;
   overflow: hidden;
@@ -890,7 +866,7 @@
 
 .bet-tile {
   position: relative;
-  background: #16213e;
+  // background: #16213e;
   padding: 18px 8px;
   text-align: center;
   cursor: pointer;
@@ -927,17 +903,6 @@
   &:active:not(.locked) {
     transform: scale(0.94);
   }
-}
-
-.tile-content {
-  display: flex;
-  flex-direction: column;
-}
-
-.tile-name {
-  font-size: 14.5px;
-  color: #94a3b8;
-  font-weight: 500;
 }
 
 .tile-odds {
@@ -1097,4 +1062,85 @@
   font-size: 14px;
   color: #aaa;
   margin-top: 4px;
+}
+.popular-bets-modern {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: #1d1f27;
+}
+
+.bet-block {
+  border-radius: 10px;
+  margin-bottom: 20px;
+  // flex-basis: calc(25% - 10px); 
+  flex-grow: 1;
+}
+
+
+.bet-tile.locked {
+  opacity: 0.5;
+}
+
+.vip-tile {
+  background-color: #f5a623;
+}
+
+.tile-name {
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+
+.trade-level {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.slider {
+  height: 8px;
+  background: #4d4d4d;
+  border-radius: 5px;
+  -webkit-appearance: none;
+  outline: none;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #36c;
+  border-radius: 50%;
+}
+
+.bet-button button {
+  background-color: #36c;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.bet-button button:hover {
+  background-color: #0056b3;
+}
+
+.corner-ribbon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #ff4500;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 12px;
+}
+.tile-content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

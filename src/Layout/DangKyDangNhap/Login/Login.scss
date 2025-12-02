@@ -44,7 +44,8 @@
     cursor: pointer;
     padding: 12px;
     border-radius: 10px;
-    background-color: var(--button-color);
+    background: linear-gradient(180deg, #f7931e -1.06%, #dd5906 102.84%),
+        var(--color-primary-color-active, #f37d25);
     text-align: center;
     margin-top: 10px;
     border: none;
@@ -61,7 +62,7 @@
 }
 
 .div_notk {
-    color: #5d82df;
+    color: #ff7700;
     font-size: 16px;
 }
 
@@ -93,7 +94,7 @@
     height: 14px !important;
 }
 
-.div_quenmk_title{
+.div_quenmk_title {
     text-align: center;
     font-weight: 600;
     font-size: 20px;

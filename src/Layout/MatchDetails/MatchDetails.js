@@ -323,83 +323,86 @@ const Tabs = ({ idtab, setidtab, betinfo, settabname }) => {
   )
 }
 
-const ScorePredictions = ({
-  openModal,
-  data,
-  setbetdata,
-  setgamekey,
-  tabname
-}) => {
-  const { t } = useTranslation()
+const ScorePredictions = ({ openModal, data, setbetdata, setgamekey, tabname }) => {
+  const { t } = useTranslation();
 
-  const handelgamekey = (gamekey, betdata) => {
-    setgamekey(gamekey)
-    setbetdata(betdata)
-  }
-  return (<div className="popular-bets-modern">
+  const handleGameKey = (gamekey, betdata) => {
+    setgamekey(gamekey);
+    setbetdata(betdata);
+  };
 
-    <div className="bets-wrapper">
-      {Object.entries(data).reduce((groups, [gamekey, item], i) => {
-        if (i % 4 === 0) groups.push([])
-        groups[Math.floor(i / 4)].push({ gamekey, item })
-        return groups
-      }, []).map((group, idx) => {
-        const hasBaotoan = group.some(x => x.item.baotoan)
+  const getName = (it) => {
+    if (tabname === t('ftchanle'))
+      return it.name === '0_0' ? t('le') : it.name === '1_1' ? t('chan') : it.name;
+    if ([t('ftthanghoathua'), t('htthanghoathua')].includes(tabname)) {
+      return it.name === '1_0' ? t('thang') :
+        it.name === '0_0' ? t('hoa') :
+          it.name === '0_1' ? t('thua') : it.name;
+    }
+    return it.name.replaceAll('_', ':');
+  };
 
-        const getName = (it) => {
-          if (tabname === t('ftchanle')) return it.name === '0_0' ? t('le') : it.name === '1_1' ? t('chan') : it.name
-          if ([t('ftthanghoathua'), t('htthanghoathua')].includes(tabname)) {
-            return it.name === '1_0' ? t('thang') :
-              it.name === '0_0' ? t('hoa') :
-                it.name === '0_1' ? t('thua') : it.name
-          }
-          return it.name.replaceAll('_', ':')
-        }
+  return (
+    <div className="popular-bets-modern">
+      <div className="bets-wrapper">
+        {Object.entries(data).reduce((groups, [gamekey, item], i) => {
+          if (i % 4 === 0) groups.push([]);
+          groups[Math.floor(i / 4)].push({ gamekey, item });
+          return groups;
+        }, []).map((group, idx) => {
+          const hasBaotoan = group.some(x => x.item.baotoan);
 
-        return (
-          <div key={idx} className={`bet-block ${hasBaotoan ? 'vip-block' : ''}`}>
-           
+          return (
+            <div key={idx} className={`bet-block ${hasBaotoan ? 'vip-block' : ''}`}>
+              <div className="bet-grid">
+                {group.map(({ gamekey, item }) => {
+                  const locked = item.locked;
+                  const odds = typeof item.value === 'number' ? item.value.toFixed(2) : item.value;
 
-            <div className="bet-grid">
-              {group.map(({ gamekey, item }) => {
-                const locked = item.locked
-                const odds = typeof item.value === 'number' ? item.value.toFixed(2) : item.value
-
-                return (
-                  <div
-                    key={gamekey}
-                    className={`bet-tile ${locked ? 'locked' : ''} ${item.baotoan ? 'vip-tile' : ''}`}
-                    onClick={() => !locked && (handelgamekey(gamekey, item), openModal())}
-                  >
-                    <div className="tile-content">
-                      <div className="tile-name">{getName(item)}</div>
-                      {locked ? (
-                        <div className="lock">Lock</div>
-                      ) : (
+                  return (
+                    <div
+                      key={gamekey}
+                      className={`bet-tile ${locked ? 'locked' : ''} ${item.baotoan ? 'vip-tile' : ''}`}
+                      onClick={() => !locked && (handleGameKey(gamekey, item), openModal())}
+                    >
+                      <div className="tile-content">
+                        <div className="tile-name">{getName(item)}</div>
                         <div className="tile-odds">
                           <span className="num">{odds}</span>
                           <span className="pct">%</span>
-                          <div className="mirror-shine"></div>
                         </div>
-                      )}
+                        <div className="trade-level">
+                          <input
+                            type="range"
+                            min="0"
+                            max="100"
+                            value={Math.random() * 100} // Randomize value for each item
+                            className="slider"
+                            readOnly
+                          />
+                        </div>
+                        <div className="bet-button">
+                          <button>Đặt cược</button>
+                        </div>
+                      </div>
+                      {item.baotoan && <div className="corner-ribbon">VIP-BTV</div>}
                     </div>
-                    {item.baotoan && <div className="corner-ribbon">VIP-BTV</div>}
-                  </div>
-                )
-              })}
+                  );
+                })}
 
-              {/* Fill empty slots */}
-              {group.length < 4 && Array(4 - group.length).fill(null).map((_, i) => (
-                <div key={`empty-${i}`} className="bet-tile empty" />
-              ))}
+                {/* Fill empty slots */}
+                {group.length < 4 && Array(4 - group.length).fill(null).map((_, i) => (
+                  <div key={`empty-${i}`} className="bet-tile empty" />
+                ))}
+              </div>
             </div>
-          </div>
-        )
-      })}
+          );
+        })}
+      </div>
     </div>
-  </div>
-  )
-}
+  );
+};
+
 
 const BetModal = ({
   closeModal,

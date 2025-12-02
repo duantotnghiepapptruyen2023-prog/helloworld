@@ -3,18 +3,14 @@ import './CSKHLayout.scss'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 
-const CSKHLayout = () => {
+const CSKHLayoutNew = () => {
   const { t } = useTranslation()
 
   const hoTroList = [
+    { icon: '/cskh/cskh.webp', text: t('gtnm'), link: 'https://t.me/akbetsp1' },
     {
-      icon: '/cskh/begin.png',
-      text: t('gtnm'),
-      link: 'https://t.me/akbetsp1'
-    },
-    {
-      icon: '/cskh/faq.png',
-      text: 'AKBET - 02',
+      icon: '/cskh/cskh.webp',
+      text: 'BT66 - 02',
       link: 'https://t.me/akbetsp2'
     }
   ]
@@ -30,50 +26,46 @@ const CSKHLayout = () => {
       text: t('trochuyen'),
       link: 'https://t.me/akbetcommunitygroups'
     }
-    // ,
-    // {
-    //   icon: '/cskh/web.gif',
-    //   text: 'Live chat',
-    //   link: 'https://direct.lc.chat/19179204/'
-    // }
   ]
 
   return (
-    <div className='container-cskh'>
-      <div className='about-me-header'>
-        <Link to='/'>
-          <div className='about-me-icback'>
-            <img src='/back.png' alt='Back' />
-          </div>
+    <div className='cskh-container'>
+      <header className='cskh-header'>
+        <Link to='/' className='btn-back'>
+          <img src='/back.png' alt='Back' />
         </Link>
-        <div className='about-me-text'>{t('CSKH')}</div>
-      </div>
-      <div className='cskh_body'>
-        <h3 className='h3_cskh'>{t('hotro')}</h3>
-        <div className='cskh_section_hotro'>
-          {hoTroList.map((item, index) => (
-            <a href={item.link} key={index} className='cskh_link_hotro'>
-              <img src={item.icon} alt='' className='icon-img' />
-              <span>{item.text}</span>
-            </a>
-          ))}
-        </div>
+        <h2 className='title'>{t('CSKH')}</h2>
+      </header>
 
-        <h3 className='h3_cskh'>{t('hotrotructuyen')}</h3>
-        <div className='menu_cskh'>
-          {hoTroTrucTuyenList.map((item, index) => (
-            <div className='menu-item_cskh' key={index}>
-              <Link to={item.link} className='item1'>
-                <img src={item.icon} alt='Setting' /> {item.text}
+      <main className='cskh-content'>
+        <section className='section-box'>
+          <h3>{t('hotro')}</h3>
+          <div className='item-grid'>
+            {hoTroList.map((item, index) => (
+              <a href={item.link} key={index} className='item-card'>
+                <img src={item.icon} alt='' />
+                <span>{item.text}</span>
+              </a>
+            ))}
+          </div>
+        </section>
+
+        <section className='section-box'>
+          <h3>{t('hotrotructuyen')}</h3>
+          <div className='item-list'>
+            {hoTroTrucTuyenList.map((item, index) => (
+              <Link to={item.link} key={index} className='item-row'>
+                <img src={item.icon} alt='' />
+                <span>{item.text}</span>
               </Link>
-            </div>
-          ))}
-        </div>
-      </div>
+            ))}
+          </div>
+        </section>
+      </main>
 
-      <div className='box-height'></div>
+      <div className='bottom-space'></div>
     </div>
   )
 }
 
-export default CSKHLayout
+export default CSKHLayoutNew
