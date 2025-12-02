@@ -1,0 +1,13 @@
+.default-layout {
+    width: 450px;
+    background-color: var(--backgroud-color);
+   min-height: 100vh;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 600px) {
+    .default-layout {
+        width: 100%;
+    }
+
+}

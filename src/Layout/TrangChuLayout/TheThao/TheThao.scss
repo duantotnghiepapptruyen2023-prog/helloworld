@@ -1,0 +1,91 @@
+.ulthethao {
+    margin-top: 0.822rem;
+    padding: 0;
+    margin-bottom: 0;
+    padding-bottom: .411rem;
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: minmax(calc((var(--games-block-height) - (24 / 14.59848) * 1rem) / 4), auto);
+    gap: .411rem;
+}
+
+.thethao_item {
+    border: .0548rem solid #e6e3ffe5;
+    position: relative;
+    box-sizing: border-box;
+    border-radius: .548rem;
+    background-size: cover !important;
+    background-position: 50% !important;
+    overflow: hidden;
+    display: block;
+    height: 9.5rem;
+}
+
+.gameitem {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: .274rem .548rem .548rem;
+    box-sizing: border-box;
+    border-radius: inherit;
+}
+
+.firm_logo {
+    width: 100%;
+    height: 25%;
+    min-height: 2.19201rem;
+    max-height: 3.01401rem;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+
+    i {
+        img {
+            height: 100%;
+            -o-object-fit: contain;
+            object-fit: contain;
+            -o-object-position: left center;
+            object-position: left center;
+        }
+    }
+}
+
+.anhgame {
+    width: 100%;
+    height: 100%;
+    max-height: 6.57603rem;
+    display: block;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 100% 100%;
+    border-bottom-right-radius: inherit;
+    pointer-events: none;
+}
+
+.gametag {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 90;
+    overflow: visible;
+    pointer-events: none;
+    border-radius: inherit;
+}
+
+.lifirst {
+    grid-area: 1 / span 2;
+}
+
+.anh_item_first {
+    max-height: 128px !important;
+}
+
+.firm_logo2 {
+    height: 45% !important;
+}

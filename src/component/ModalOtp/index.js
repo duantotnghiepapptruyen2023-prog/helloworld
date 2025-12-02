@@ -1,0 +1,1 @@
+export {default as ModalOtp} from './ModalOtp'

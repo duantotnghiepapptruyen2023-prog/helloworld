@@ -1,0 +1,34 @@
+.modal-component-overlay-user {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    color: black !important;
+}
+
+.modal-component-content-user {
+    position: relative !important;
+    background-color: #fff !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+}
+
+
+.modal-component-body {
+    font-size: 1em;
+    color: #333;
+}
+
+@media screen and (max-width: 46.1875em) {
+    .modal-component-content-user {
+        overflow-y: auto;
+        max-height: 100%;
+    }
+
+}

@@ -1,0 +1,563 @@
+.container-bettinghistory {
+  color: #000;
+  width: 100%;
+  max-width: 450px;
+  min-height: 100vh;
+  background-color: var(--backgroud-color);
+}
+
+.dropdown-container-bettinghistory {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-radius: 4px;
+  padding: 10px;
+  background: #09143d;
+  margin: 15px 10px 0px 10px;
+  box-shadow: 3px 3px 3px 3px #050e31;
+
+  .status-label-trangthai-bettinghistory {
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+}
+
+.dropdown-container-l-bettinghistory {
+  flex: 9;
+}
+
+.dropdown-container-r-bettinghistory {
+  margin-top: 10px;
+  margin-right: 5px;
+}
+
+.dropdown-container-bettinghistory label {
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.status-icon-bettinghistory {
+  font-size: 14px;
+  color: #b9b9b9;
+}
+
+.dropdown-container-bettinghistory select {
+  width: 100%;
+  padding: 0px 5px;
+  font-size: 14px;
+  appearance: none;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background-color: #f8f7f7;
+}
+
+.time-picker-bettinghistory {
+  margin: 10px;
+}
+
+.input-container-bettinghistory {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  padding: 10px;
+  background: #192553;
+  justify-content: center;
+}
+
+/* Style cho Popup lịch */
+.react-datepicker {
+  font-family: Arial, sans-serif;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.react-datepicker__day {
+  // padding: 4px;
+  font-size: 12px;
+}
+
+/* Ngày được chọn */
+.react-datepicker__day--selected,
+.react-datepicker__day--in-range {
+  background: #00a0ff !important;
+  color: white !important;
+  border-radius: 50%;
+}
+
+.uni-input-input {
+  border: none !important;
+  outline: none !important;
+  background: transparent;
+  font-size: 16px;
+  width: 100%;
+  cursor: pointer;
+  text-align: center;
+}
+
+.button-betting {
+  text-align: center;
+}
+
+.bet-container {
+  height: 250px;
+}
+
+.header-app-bettinghistory {
+  position: fixed;
+  background-color: var(--backgroud-color);
+  color: #e3f2fd;
+  padding: 22px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: bold;
+  top: 0;
+  width: 450px;
+  z-index: 100000;
+}
+
+.game-history-search-form-1 {
+  margin-top: 64px;
+}
+
+.header-app-bettinghistory .back-icon {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.nrc-button {
+  width: 70%;
+  padding: 10px;
+  background-color: var(--button-color);
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  justify-content: center;
+}
+
+.bet-card {
+  font-family: Arial, sans-serif;
+  border-radius: 5px;
+  padding: 10px;
+  max-width: 400px;
+  background: var(--backgroud-color2);
+  margin: 10px 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  color: #fff;
+  box-shadow: 2px 2px 2px 2px var(--button-color);
+}
+
+.bet-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  color: var(--text-color);
+}
+
+.bet-league-name {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.bet-header .bet-odds {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+.bet-details p {
+  font-size: 14px;
+  color: #555;
+}
+
+.bet-amount p {
+  color: var(--text-color);
+  margin: 0;
+  font-size: 14px;
+}
+
+.amountorange {
+  color: var(--text-color);
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.bet-details .highlight {
+  background-color: #eaf4ff;
+  padding: 3px 5px;
+  border-radius: 3px;
+  color: #007bff;
+}
+
+.copy-icon {
+  font-size: 16px;
+  cursor: pointer;
+  color: #555;
+}
+
+.bet-footer {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5px;
+}
+
+.bet-amount-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+
+.bet-amount {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.copy-lstc {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  p {
+    color: var(--text-color);
+    font-size: 12px;
+  }
+}
+
+.copy img {
+  height: 20px;
+  width: 25px;
+}
+
+.bet-header .draw {
+  color: rgb(255, 174, 0);
+}
+
+.cancel-bet-button {
+  background-color: red;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  margin-left: 10px;
+  padding: 5px;
+  box-shadow: 3px 3px 3px 3px #000f42;
+}
+
+.match-info {
+  font-size: 13px;
+  color: var(--text-color);
+  display: flex;
+  margin-bottom: 10px;
+  justify-content: space-between;
+
+  .highlight {
+    text-align: start !important;
+    font-size: 13px !important;
+    font-weight: 600;
+  }
+
+  span {
+    text-align: end;
+  }
+}
+
+.div_correct_score {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.correct_score_title {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.correct_score {
+  background-color: var(--button-color);
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 10px;
+  color: black;
+}
+
+.correct_score_item {
+  font-size: 14px;
+  font-weight: 540;
+}
+
+.correct_score_profit {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.time_cuoc_betting {
+  font-size: 12px;
+  color: var(--text-color);
+  display: flex;
+  gap: 3px;
+  align-items: center;
+}
+
+.cuoc_ketqua_container {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  margin-bottom: 5px;
+
+  .win {
+    color: green;
+  }
+
+  .lose {
+    color: var(--button-color);
+  }
+}
+
+.ant-tabs-tab {
+  font-size: 16px !important;
+  font-weight: 600;
+  color: var(--text-color) !important;
+}
+
+.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: white !important;
+}
+
+.ant-tabs-nav .ant-tabs-nav-wrap {
+  justify-content: center;
+}
+
+.ant-tabs-nav-wrap {
+  background-color: var(--backgroud-color2);
+}
+
+.div_hoantienbtv {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 5px;
+}
+
+.no-data-betting {
+  text-align: center;
+  color: var(--text-color);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+@media screen and (max-width: 600px) {
+  .header-app-bettinghistory {
+    width: 100% !important;
+  }
+
+  .game-history-search-form-1 {
+    margin-top: 64px !important;
+  }
+}
+.bet-history-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+
+  .bet-item-card {
+    background-color: rgb(238, 238, 238);
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    transition: transform 0.2s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .bet-item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .bet-league {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        .bet-icon {
+          color: #ff6b6b;
+          font-size: 1.2rem;
+        }
+
+        .league-title {
+          font-weight: 600;
+          font-size: 0.95rem;
+          color: #333;
+        }
+      }
+
+      .btn-cancel-bet {
+        background-color: #ff4d4f;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        padding: 0.3rem 0.6rem;
+        font-size: 0.85rem;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+
+        &:hover {
+          background-color: #d9363e;
+        }
+      }
+    }
+
+    .bet-match-info {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      color: #555;
+
+      .teams {
+        font-weight: 500;
+      }
+
+      .kickoff-time {
+        font-style: italic;
+      }
+    }
+
+    .bet-type-box {
+      .bet-type-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0.5rem;
+
+        .bet-type-label {
+          font-weight: 500;
+          color: #333;
+        }
+
+        .bet-type-value {
+          font-weight: 600;
+          color: #1e88e5;
+        }
+
+        .bet-profit-rate {
+          font-weight: 600;
+          color: #28a745;
+        }
+      }
+    }
+
+    .bet-amount-section {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      font-size: 0.88rem;
+
+      .amount-row {
+        display: flex;
+        justify-content: space-between;
+
+        .amount-value {
+          font-weight: 600;
+        }
+      }
+    }
+
+    .bet-status-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 0.5rem;
+      font-size: 0.88rem;
+
+      .bet-time span:last-child {
+        margin-left: 0.3rem;
+        font-weight: 500;
+      }
+
+      strong {
+        padding: 0.2rem 0.5rem;
+        border-radius: 4px;
+        font-size: 0.85rem;
+        color: #fff;
+
+        &.status-win {
+          background-color: #28a745;
+        }
+
+        &.status-lose {
+          background-color: #dc3545;
+        }
+
+        &.status-pending {
+          background-color: #ffc107;
+          color: #333;
+        }
+
+        &.status-cancel {
+          background-color: #6c757d;
+        }
+      }
+    }
+
+    .refund-box {
+      margin-top: 0.5rem;
+      padding: 0.4rem;
+      background-color: #fff3cd;
+      border: 1px solid #ffeeba;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      color: #856404;
+      text-align: center;
+    }
+
+    .bet-extra-info {
+      margin-top: 0.5rem;
+      font-size: 0.85rem;
+      color: #555;
+
+      .match-code {
+        font-weight: 600;
+        color: #1e88e5;
+      }
+    }
+  }
+
+  .bet-no-data {
+    text-align: center;
+    color: #999;
+    font-style: italic;
+    padding: 2rem 0;
+  }
+}

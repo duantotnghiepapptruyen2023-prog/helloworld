@@ -1,0 +1,299 @@
+.body-taixuong{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.containe-downloadr{
+  background-color: var(--backgroud-color);
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    max-width: 450px;
+}
+.header-download {
+    width: 450px;
+    height: 60px;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    background-color: #5bcbff;
+    background-color: var(--backgroud-color);
+    background-size: 200% auto;
+    -webkit-animation: gradient_move 3s ease infinite;
+    animation: gradient_move 3s ease infinite;
+    z-index: 10000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .logo-container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+  }
+  .header-download img {
+    width: auto;
+    height: 50px;
+  }
+  .iconback-download img {
+    width: 30px;
+    height: 30px;
+    margin-left: 20px;
+  }
+  .carousel_container-download {
+    padding: 10px;
+    margin-top: 20px;
+  }
+  
+  
+  .carousel-download {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    overflow: hidden;
+    margin-top: 60px;
+  }
+  
+  .carousel-inner-download {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .carousel-item-download {
+    min-width: 100%;
+    text-align: center;
+  }
+  
+  .carousel-item-download img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .carousel-control-download {
+    position: absolute;
+    top: 50%;
+    width: 30px;
+    height: 30px;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 1000;
+    opacity: 0.6;
+  }
+  
+  .carousel-control-download.prev {
+    left: 10px;
+  }
+  
+  .carousel-control-download.next {
+    right: 10px;
+  }
+  
+  .carousel-control:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  .btn_container-download {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    margin-top: 50px;
+    padding: 20px;
+  }
+  .btn_container-download a {
+    width: 100%;
+  }
+  
+  .btn-download {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 20px;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    text-align: center;
+    min-width: 200px;
+    width: 100%;
+  }
+  
+  .android {
+    animation: neon-pulse-android 1.5s infinite;
+    background-color: #f94a6e;
+  }
+  .android::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(
+      90deg,
+      #f94a6e,
+      #e04ff0,
+      #f49d49,
+      #ff1f2c,
+      #ff6830,
+      #f94a6e
+    );
+    background-size: 300% 100%;
+    z-index: -1;
+    filter: blur(5px);
+    animation: gradientMove 5s linear infinite;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .android-icon-svg,
+  .ios-icon-svg {
+    fill: white;
+  }
+  .android-icon,
+  .ios-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+  }
+  
+  .ios {
+    animation: neon-pulse-ios 1.5s infinite;
+    background-color: #007aff;
+  }
+  
+  .ios::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(
+      90deg,
+      #007aff,
+      #5ac8fa,
+      #4cd964,
+      #ff2d55,
+      #5856d6,
+      #007aff
+    );
+    background-size: 300% 100%;
+    z-index: -1;
+    filter: blur(5px);
+    animation: gradientMove 5s linear infinite;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  @keyframes neon-pulse-ios {
+    0% {
+      box-shadow: 0 0 5px rgba(0, 122, 255, 0.7), 0 0 10px rgba(90, 200, 250, 0.7),
+        0 0 15px rgba(76, 217, 100, 0.7), 0 0 20px rgba(255, 45, 85, 0.7);
+    }
+    50% {
+      box-shadow: 0 0 20px rgba(0, 122, 255, 0.7),
+        0 0 30px rgba(90, 200, 250, 0.7), 0 0 40px rgba(76, 217, 100, 0.7),
+        0 0 50px rgba(255, 45, 85, 0.7);
+    }
+    100% {
+      box-shadow: 0 0 5px rgba(0, 122, 255, 0.7), 0 0 10px rgba(90, 200, 250, 0.7),
+        0 0 15px rgba(76, 217, 100, 0.7), 0 0 20px rgba(255, 45, 85, 0.7);
+    }
+  }
+  
+  @keyframes neon-pulse-android {
+    0% {
+      box-shadow: 0 0 5px rgba(249, 74, 110, 0.7),
+        0 0 10px rgba(224, 79, 240, 0.7), 0 0 15px rgba(244, 157, 73, 0.7),
+        0 0 20px rgba(255, 31, 44, 0.7);
+    }
+    50% {
+      box-shadow: 0 0 20px rgba(249, 74, 110, 0.7),
+        0 0 20px rgba(224, 79, 240, 0.7), 0 0 30px rgba(244, 157, 73, 0.7),
+        0 0 40px rgba(255, 31, 44, 0.7);
+    }
+    100% {
+      box-shadow: 0 0 5px rgba(249, 74, 110, 0.7),
+        0 0 10px rgba(224, 79, 240, 0.7), 0 0 15px rgba(244, 157, 73, 0.7),
+        0 0 20px rgba(255, 31, 44, 0.7);
+    }
+  }
+  @keyframes gradient_move {
+    0% {
+      background-position: 0% 92%;
+    }
+    50% {
+      background-position: 100% 9%;
+    }
+    100% {
+      background-position: 0% 92%;
+    }
+  }
+  
+  .svg_backgr {
+    line-height: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 150px;
+    width: 420px;
+  }
+  
+  .svg_backgr svg {
+    width: calc(var(--divider-width) + 2px);
+    height: 150px;
+    display: block;
+    left: 50%;
+    position: relative;
+    transform: translateX(-50%);
+    fill: #8dd7f7;
+  }
+  
+  .svg_2 {
+    top: 300px;
+    transform: rotate(180deg);
+  }
+  
+  .col_inner {
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    flex: 1 0 auto;
+    padding: 10px;
+    z-index: 100000;
+    position: relative;
+  }
+  .col_inner p {
+    font-size: 15px;
+  }
+  
+  .text {
+    text-align: left;
+    color: #0077ff;
+  }
+  
+  .text_heading {
+    color: #0077ff;
+    text-shadow: 1px 1px 1px #fff, 1px 2px 1px #fff, 1px 3px 1px #fff,
+      1px 4px 1px #fff, 1px 5px 1px #fff, 1px 6px 1px #fff, 1px 7px 1px #fff,
+      1px 8px 1px #fff, 1px 9px 1px #fff, 1px 10px 1px #fff,
+      1px 18px 6px rgba(16, 16, 16, 0.4), 1px 22px 10px rgba(16, 16, 16, 0.2),
+      1px 25px 35px rgba(16, 16, 16, 0.2), 1px 30px 60px rgba(16, 16, 16, 0.4);
+  }
+  
+ 
+  

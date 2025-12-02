@@ -1,0 +1,118 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: SF Pro Text, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
+    sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  --custom-home-bg: url('../public/home_bg2.png') no-repeat center / contain;
+  --custom-home-bg-size: auto 3.22081rem;
+  --custom-home-bg-position: 0.41117rem 100%;
+  --custom-home-bg-color: #f7fcfe;
+  --theme-app-bg: #fafafa;
+  --theme-second_text-color: #676d96;
+  --theme-main-btn: url('../public/btn_bg.png');
+  --theme-select-color: #6297ff;
+  --banner-height: 119px;
+  --broadcast-height: 25px;
+  --recommend-height: 112px;
+  --bottom-nav-height: 62px;
+  --top-nav-height: 892px;
+  --jackpot-height: 0px;
+  --fix-typec-main-y: 2.5px;
+  --app-height: 1259px;
+  --header-height: 52px;
+  --custom-home-active-tab: #f9f6e7;
+  --theme-home-active-tab: var(
+    --custom-home-active-tab,
+    url('../public/activetab.png')
+  );
+  --theme-home-tab-border: 1px solid #e9e8e3;
+  --theme-home-tab-border-active: var(--theme-home-tab-border);
+  --theme-home-tab: #f9f6e7;
+  --theme-home-tab-icon-bg: #858484;
+  --theme-home-nav-shadow: url('../public/iconshadow.png');
+  --theme-home-tab-text-active: #f9f6e7;
+  --screenW: 430;
+  --games-block-height: 670px;
+  --theme-input-placeholder-text: #b4b9de;
+  --theme-user_money-color: #3c3c3d;
+  --theme-header-reload: #a3a8b0;
+  --icon-width: 46px;
+  --icon-width-sm: 28px;
+  --theme-nav-bg: linear-gradient(83deg, #3880e5, #759bff);
+  --theme-primary_btn-bg: #4b4fe7;
+  --theme-primary_text-color: #5c6186;
+  --theme-acitve_primary_text-color: #3e4558;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+div,
+img,
+span,
+a,
+p,
+ul,
+h3,
+h6,
+form {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  border: 0;
+}
+
+input,
+select {
+  vertical-align: middle;
+  font-size: inherit;
+  color: inherit;
+  outline: 0;
+  border: none;
+}
+
+button,
+input,
+select,
+textarea {
+  border: none;
+}
+
+a {
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  outline: 0;
+  color: inherit;
+  font-size: inherit;
+}
+
+li,
+ol,
+ul {
+  list-style: none;
+}
+
+li {
+  word-break: break-all;
+  word-wrap: break-word;
+}
+
+@media screen and (max-width: 768px) {
+  input {
+    font-size: 16px !important;
+  }
+}

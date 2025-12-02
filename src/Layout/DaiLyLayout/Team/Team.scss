@@ -1,0 +1,80 @@
+.tabs-daily-team {
+    display: flex;
+    justify-content: space-around;
+    margin: 10px 0;
+   
+}
+
+.tab-button-daily-team {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 16px;
+    font-weight: bold;
+    color: var(--text-color);
+    transition: all 0.2s ease;
+    background-color: transparent;
+}
+
+.tab-button-daily-team.active-daily-team {
+    background-color: var(--button-color);
+    color: white;
+}
+
+.user-list-daily-team {
+    padding: 10px;
+}
+
+.user-row-daily-team {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    /* 3 cột bằng nhau */
+    align-items: center;
+    padding: 10px;
+    border-radius: 12px;
+    margin-bottom: 8px;
+}
+
+.header-daily-team {
+    background-color: #1d1f30;
+    font-weight: bold;
+
+    .username-header,
+    .level-header,
+    .date-header {
+
+        color: white !important;
+    }
+}
+
+
+.username-header,
+.level-header,
+.date-header {
+    font-size: 14px;
+    color: var(--text-color);
+}
+
+/* Căn đều nội dung cho các ô dữ liệu */
+.username-header {
+    text-align: left;
+}
+
+.level-header {
+    text-align: center;
+}
+
+.date-header {
+    text-align: right;
+}
+
+.even-daily-team,
+.odd-daily-team {
+    background-color: var(--backgroud-color2);
+}
+
+@media screen and (max-width: 600px) {
+    .tabs-daily-team {
+        margin-top: 64px;
+    }
+    
+}

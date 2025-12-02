@@ -1,0 +1,225 @@
+.container-hoahong {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(180deg, #0f2027, #0f172a, #0f172a);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-header-modern {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 20px 0;
+  background: rgba(0, 0, 0, 0.4);
+  font-size: 20px;
+  font-weight: 700;
+  text-shadow: 1px 1px 5px #000;
+}
+
+.app-header-modern .back-icon {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  filter: drop-shadow(0 0 2px #00f);
+}
+
+.header-hoahong.tab-navigation-modern {
+  display: flex;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  margin: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.header-hoahong.tab-navigation-modern div {
+  flex: 1;
+  text-align: center;
+  padding: 12px 0;
+  cursor: pointer;
+  font-weight: 600;
+  color: #a0c4ff;
+  transition: all 0.3s ease;
+}
+
+.header-hoahong.tab-navigation-modern div.active {
+  background: linear-gradient(135deg, #5bb5ff, #0077ff);
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.modern-filter-box {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.glossy-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 8px;
+  border: 1px solid rgba(0, 150, 255, 0.3);
+}
+
+.date-input-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.icon-button-hh {
+  width: 30px;
+  height: 30px;
+  border-radius: 12px;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.2s;
+  background: none;
+  padding: 0;
+  img{
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.icon-button-hh:hover {
+  opacity: 0.85;
+}
+
+.search-input-wrapper-hh {
+  display: flex;
+  align-items: center;
+  background: rgba(20, 45, 65, 0.6);
+  border: 1px solid rgba(0, 150, 255, 0.4);
+  border-radius: 12px;
+  padding: 8px 12px;
+  gap: 8px;
+}
+
+.search-icon-hh {
+  font-size: 18px;
+  color: #7fc7ff;
+}
+
+.search-input-hh {
+  flex: 1;
+  border: none;
+  background: transparent;
+  outline: none;
+  color: #fff;
+  font-size: 15px;
+}
+
+.kiemtra-button {
+  padding: 6px 12px;
+  background: linear-gradient(135deg, #5b91e2, #0364c9);
+  border: none;
+  border-radius: 50px;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.kiemtra-button:hover {
+  opacity: 0.9;
+}
+
+.table-container-hoahong {
+  overflow-x: auto;
+  overflow-y: auto;
+  max-height: calc(100vh - 300px);
+  margin-top: 10px;
+  scrollbar-width: thin;
+  scrollbar-color: #0077ff transparent;
+}
+
+.table-container-hoahong::-webkit-scrollbar {
+  width: 6px;
+}
+
+.table-container-hoahong::-webkit-scrollbar-thumb {
+  background-color: #0077ff;
+  border-radius: 10px;
+}
+
+.user-row-bonus-team,
+.user-row-bonus-team-f2f3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 8px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  transition: all 0.3s;
+}
+
+.user-row-bonus-team:hover,
+.user-row-bonus-team-f2f3:hover {
+  background: rgba(0, 170, 255, 0.15);
+}
+
+.even-daily-team {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.odd-daily-team {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.summary-text-new {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-align: center;
+  color: #cce7ff;
+}
+
+.box-height {
+  height: 50px;
+}
+
+.content {
+  overflow-y: auto;
+}
+
+.m-th2 {
+  color: #cce7ff;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+/* React DatePicker custom style */
+.react-datepicker-hoahong {
+  font-family: 'Segoe UI', sans-serif;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+}
+
+.react-datepicker__day--selected,
+.react-datepicker__day--in-range {
+  background: #00a0ff !important;
+  color: white !important;
+  border-radius: 50%;
+}
+
+@media screen and (max-width: 768px) {
+  .container-hoahong {
+    max-width: 100%;
+  }
+}

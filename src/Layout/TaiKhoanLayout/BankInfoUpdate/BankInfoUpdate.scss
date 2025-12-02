@@ -1,0 +1,178 @@
+.security-bank-container {
+  background-color: var(--backgroud-color);
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  max-width: 450px;
+}
+
+.security-bank-header {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  padding: 10px 20px;
+  color: #fff;
+  background-color: var(--backgroud-color);
+}
+
+.security-bank-icback img {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.security-bank-header .security-bank-title {
+  flex-grow: 1;
+  font-size: 20px;
+  text-align: center;
+}
+
+.security-bank-input {
+  width: 85%;
+  margin: 16px auto 0 auto;
+}
+
+.security-bank-input label {
+  display: block;
+  margin-bottom: 5px;
+  color: #666;
+}
+
+.security-bank-input input,
+.security-bank-input select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: transparent;
+  color: #fff;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+.security-bank-input select {
+  option{
+    background-color: var(--backgroud-color);
+  }
+}
+
+.security-bank-input small {
+  color: #e94951;
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 5px;
+  display: block;
+}
+
+.security-bank-input .bank-form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  color: white;
+
+}
+.bank-form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  color: white;
+
+  // Thêm fix cho Safari iOS
+  font-size: 16px; // fix zoom
+  width: 100%;
+
+  // Đảm bảo các input/select con không bị ảnh hưởng
+  select, input, .ant-select-selector {
+    font-size: 16px !important;
+  }
+
+  // Fix Ant Design select bị zoom khi mở dropdown
+  .ant-select {
+    width: 100%;
+  }
+
+  .ant-select-dropdown {
+    font-size: 16px;
+  }
+}
+.security-bank-input .bank-captcha-group {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid #ddd;
+  align-items: center;
+  border-radius: 5px;
+}
+.bank-form-group1 {
+   display: flex;
+  align-items: center;
+  background-color: var(--backgroud-color2);
+  border-radius: 8px;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  input{
+     padding: 5px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.2s ease;
+  color: white;
+  flex: 1;
+  background-color: transparent;
+  }
+
+}
+.bank-captcha-input {
+  flex: 1;
+}
+
+.bank-captcha-input input {
+  border: none;
+  outline: none;
+}
+
+.bank-captcha-display {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background-color: #7ff;
+  padding: 5px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  position: relative;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.bank-captcha-char {
+  font-size: 20px;
+}
+
+.refresh-button {
+  background-color: transparent;
+  border: none;
+  color: #67e3f9;
+  font-size: 24px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.bank-submit-button {
+  padding: 10px 20px;
+  background: var(--button-color);
+  border: none;
+  border-radius: 50px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+  margin-top: 20px;
+}

@@ -1,0 +1,1 @@
+export {default as BangXepHang} from './BangXepHang'

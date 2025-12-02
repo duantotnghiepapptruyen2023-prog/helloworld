@@ -1,0 +1,101 @@
+.div_login_container {
+    padding: 10px;
+}
+
+.div_login_item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+    border-bottom: 1px solid #ffffff;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.icon_user_login {
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.input_login {
+    background-color: transparent;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+
+    &::placeholder {
+        color: #ffffff;
+        font-weight: 600;
+    }
+
+    &:focus {
+        border: none;
+        outline: none;
+        background-color: transparent;
+    }
+
+}
+
+.btn_login_dangnhap {
+    font-size: 18px;
+    font-weight: 600;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 12px;
+    border-radius: 10px;
+    background-color: var(--button-color);
+    text-align: center;
+    margin-top: 10px;
+    border: none;
+    outline: none;
+    width: 100%;
+}
+
+.div_notk_dangky {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+.div_notk {
+    color: #5d82df;
+    font-size: 16px;
+}
+
+.div_dangky {
+    font-size: 16px;
+    color: #0f6cf8;
+    cursor: pointer;
+}
+
+.ant-checkbox-wrapper {
+    position: unset !important;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transform: unset !important;
+}
+
+.ant-checkbox-label {
+    color: var(--text-color);
+}
+
+.ant-checkbox-inner {
+    width: 23px !important;
+    height: 23px !important;
+}
+
+:where(.css-dev-only-do-not-override-1m2bkf9).ant-checkbox .ant-checkbox-inner:after {
+    width: 9px !important;
+    height: 14px !important;
+}
+
+.div_quenmk_title{
+    text-align: center;
+    font-weight: 600;
+    font-size: 20px;
+    color: var(--text-color)
+}

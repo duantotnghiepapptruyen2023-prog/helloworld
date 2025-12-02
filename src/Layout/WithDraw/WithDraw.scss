@@ -1,0 +1,37 @@
+.flex-end {
+  justify-content: flex-end !important;
+}
+
+.deposit-left {
+  width: 35px;
+  height: 35px;
+}
+.deposit-input {
+  margin: 10px;
+}
+.rut-info {
+  display: flex; 
+  align-items: center; 
+  gap: 8px;
+  color: white;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.rut-info .title-rut {
+  color: var(--text-color) !important;
+}
+.forgot-password-ruttien{
+  color: var(--text-color) !important;
+  margin-top: 10px;
+
+}
+
+@media screen and (min-width: 450px) {
+  .deposit-proceed {
+    width: 450px;
+  }
+  .deposit-header {
+    width: 450px;
+  }
+}

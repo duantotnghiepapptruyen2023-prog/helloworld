@@ -1,0 +1,92 @@
+.transaction-container {
+  max-width: 450px;
+  width: 100%;
+  min-height: 100vh;
+  margin: 0 auto;
+  overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.transaction-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 450px;
+  padding: 10px 15px;
+  box-sizing: border-box;
+  background-color: var(--backgroud-color);
+  color: white;
+}
+
+.ic-back {
+  flex: 0 0 auto;
+}
+
+.transaction-text {
+  flex: 1;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.spacer {
+  flex: 0 0 auto;
+  width: 40px;
+  /* Bằng khoảng chiều rộng của ic-back */
+}
+
+.table-container {
+  overflow-y: auto;
+}
+
+.container-bang {
+  margin-bottom: 40px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+thead th {
+  margin-left: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  text-align: center;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+  color: white;
+}
+
+tbody tr {
+  height: 40px;
+}
+
+tbody tr td {
+  padding: 8px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  overflow: hidden;
+  color: var(--text-color);
+
+}
+
+@media screen and (max-width: 768px) {
+  .transaction-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: var(--background-color);
+  }
+
+  .transaction-container {
+    .table-container {
+      margin-top: 50px;
+    }
+  }
+
+}

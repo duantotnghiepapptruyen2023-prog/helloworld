@@ -1,0 +1,130 @@
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  max-width: 440px;
+  height: 70px;
+  background: #061226;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5px;
+  z-index: 999;
+}
+
+.item_link_footer {
+  flex: 1;
+  text-align: center;
+  color: #ffffffb3;
+  text-decoration: none;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+  position: relative;
+}
+
+.icon_wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.25s ease;
+}
+
+.icon_footer {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  filter: brightness(0.8);
+  transition: transform 0.25s ease, filter 0.25s ease, box-shadow 0.25s ease;
+}
+
+.item_link_footer p {
+  margin: 0;
+  line-height: 14px;
+  font-size: 11px;
+  transition: color 0.25s ease;
+  color: white;
+}
+
+/* Icon giữa (center_item) */
+.center_item .icon_wrapper {
+  transform: scale(1.35) translateY(-5px);
+  filter: brightness(1.25);
+}
+
+.center_item.active .icon_wrapper {
+  transform: scale(1.6) translateY(-5px);
+  filter: brightness(1.8);
+  background: #0bb7ff33;
+  padding: 6px;
+  border-radius: 50%;
+  box-shadow: 0 0 15px #00b7ff;
+}
+
+.center_item p {
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.center_item.active p {
+  color: #ff7300;
+}
+
+/* Icon luôn active (Phản tỷ số) */
+.always_active .icon_wrapper {
+  transform: scale(1.35);
+  filter: brightness(1.8);
+  background: #ff690533;
+  padding: 6px;
+  border-radius: 50%;
+  box-shadow: 0 0 15px #ff7300;
+}
+
+.always_active p {
+  color: #ff7300;
+  font-weight: 600;
+}
+
+/* Các icon bình thường khi active */
+.item_link_footer.active:not(.center_item):not(.always_active) .icon_footer {
+  transform: scale(1.15);
+  filter: brightness(1.5);
+  background: #0bb7ff33;
+  padding: 4px;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #00b7ff;
+}
+
+.item_link_footer.active:not(.center_item):not(.always_active) p {
+  color: #00b7ff;
+  font-weight: 600;
+}
+
+/* Responsive */
+@media screen and (max-width: 600px) {
+  .footer {
+    width: 100%;
+    left: 0;
+    height: 75px;
+  }
+
+  .icon_footer {
+    width: 35px;
+    height: 35px;
+  }
+
+  .center_item .icon_wrapper {
+    transform: scale(1.5) translateY(-8px);
+  }
+
+  .center_item.active .icon_wrapper {
+    transform: scale(1.8) translateY(-8px);
+  }
+
+  .always_active .icon_wrapper {
+    transform: scale(1.5) translateY(-8px);
+  }
+}

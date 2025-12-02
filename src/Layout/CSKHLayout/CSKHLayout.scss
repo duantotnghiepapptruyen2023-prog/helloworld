@@ -1,0 +1,145 @@
+.container-cskh {
+  background-color: var(--backgroud-color);
+  min-height: 100vh;
+  padding-bottom: 85px;
+  max-width: 100%;
+  margin: 0 auto;
+  overflow-y: hidden;
+
+}
+
+.cskh_body {
+  padding: 10px;
+  margin-top: 47px;
+}
+
+.h3_cskh {
+  margin-top: 20px;
+  font-size: 18px;
+  color: white;
+}
+
+.cskh_section_hotro {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: var(--backgroud-color2);
+  padding: 5px;
+  border-radius: 10px;
+
+  .cskh_link_hotro {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: all 0.2s;
+    width: 50%;
+    margin-top: 5px;
+
+    img {
+      width: 25px;
+      height: 25px;
+    }
+
+    span {
+      color: var(--text-color);
+      font-weight: 600;
+    }
+  }
+}
+
+.cskh_section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.cskh_link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #131c3d;
+  padding: 10px 15px;
+  border-radius: 10px;
+  color: white;
+  text-decoration: none;
+  font-size: 15px;
+  transition: all 0.2s;
+
+  &:hover {
+    background-color: #1e2b54;
+  }
+
+  .cskh_icon {
+    font-size: 20px;
+  }
+
+  .icon-img {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.cskh_social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 10px;
+  background-color: #131c3d;
+  border-radius: 10px;
+  padding: 10px;
+  justify-content: center;
+
+  .social-icon {
+    width: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+
+    img {
+      width: 100%;
+
+    }
+  }
+}
+
+
+.menu_cskh {
+  background-color: var(--backgroud-color2);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.menu-item_cskh {
+  padding: 5px 0;
+  border-bottom: 1px solid #2a2d5a;
+
+  .item1 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-color);
+    font-weight: 600;
+
+    img {
+      width: 30px;
+      height: 30px;
+    }
+  }
+}
+
+.menu-item_cskh:last-child {
+  border-bottom: none;
+}
+
+// Responsive
+@media (max-width: 600px) {
+
+  .cskh_link {
+    font-size: 14px;
+  }
+}

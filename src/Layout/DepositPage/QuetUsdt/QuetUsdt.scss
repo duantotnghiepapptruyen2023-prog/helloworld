@@ -1,0 +1,82 @@
+.container-quetusdt {
+    height: 100vh;
+    overflow: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .maqr-usdt {
+  margin-top: 100px;
+}
+
+.maqr-usdt h4 {
+  margin: 2px;
+}
+
+.maqr-usdt img {
+  width: 200px;
+  height: 200px;
+}
+
+.uniform-usdt {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.uniform-usdt p {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--text-color);
+  margin: 0;
+}
+
+.uniform-usdt p img.icon-copy {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0; /* Đảm bảo icon không bị co lại */
+}
+.alert-container {
+  margin: 10px 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--backgroud-color2); /* Màu xanh đậm */
+  padding: 10px 15px;
+  border-radius: 8px; /* Bo góc */
+  color: #ffffff; /* Màu chữ trắng */
+  font-size: 14px;
+  font-weight: 500;
+  border: var(--vien-color) 1px solid;
+}
+
+.alert-icon {
+  color: #f4c430; /* Màu vàng cho biểu tượng cảnh báo */
+  font-size: 16px;
+}
+.qr-usdt{
+  display: flex;
+  justify-content: center;
+}
+.alert-message {
+  margin: 0; /* Xóa margin mặc định của span */
+}
+.usdt-address {
+  box-sizing: border-box;
+  background-color: var(--backgroud-color2);
+  border: 1px solid var(--vien-color);
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  gap: 5px;
+  width: 100%;
+}
+
+.usdt-address b {
+  flex: 1; /* Cho phép nội dung chữ chiếm không gian còn lại */
+  word-break: break-all; /* Cho phép xuống dòng tại bất kỳ ký tự nào */
+}
+
+.body-qr {
+  margin-top: 30px;
+}
