@@ -2,89 +2,86 @@
 import "./BangXepHang.scss";
 import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
-import axios from "axios";
 
-function BangXepHang({userId}) {
-  const { t } = useTranslation();
-  const [leaderboard, setLeaderboard] = useState([]);
-  const [yourRank, setYourRank] = useState(null);
-  const apiUrl = process.env.REACT_APP_API_URL;
+function BangXepHang ({ userId }) {
+  const [leaderboard, setLeaderboard] = useState([])
+  const [yourRank, setYourRank] = useState(null)
+  const [loading, setLoading] = useState(false)
+  const apiUrl = process.env.REACT_APP_API_URL
+  const { t } = useTranslation()
+
   useEffect(() => {
+    let mounted = true
     const fetchData = async () => {
+      if (!userId) return
+      setLoading(true)
       try {
-        const res = await axios.get(`${apiUrl}/getbangxephang/${userId}`);
-        setLeaderboard(res.data.top10);
-        setYourRank(res.data.yourRank);
+        const res = await fetch(`${apiUrl}/getbangxephang/${userId}`)
+        if (!res.ok) throw new Error('network')
+        const data = await res.json()
+        if (!mounted) return
+        setLeaderboard(Array.isArray(data.top10) ? data.top10 : [])
+        setYourRank(data.yourRank || null)
       } catch (err) {
-        console.error(err);
+        console.error(err)
+      } finally {
+        if (mounted) setLoading(false)
       }
-    };
-    fetchData();
-  }, [userId]);
+    }
+    fetchData()
+    return () => {
+      mounted = false
+    }
+  }, [userId, apiUrl])
 
-  const isInTop10 = leaderboard.some(
-    (player) => player.username === yourRank?.username
-  );
+  const isInTop10 = leaderboard.some(p => p.username === yourRank?.username)
 
   return (
-    <div className="leaderboard">
-      <div className="leaderboard-title">{t("bxh")}</div>
-      <div className="leaderboard-list-container">
-        <ul className="leaderboard-list">
-          <li className="leaderboard-item">
-            <span className="col-rank">{t("rank")}</span>
-            <span className="col-medal"></span>
-            <span className="col-username">{t("nguoidung")}</span>
-          </li>
+    <section className='rx-leaderboard'>
+      <div className='rx-leaderboard-head'>
+        <h3>{t('bxh') || 'Bảng xếp hạng'}</h3>
+      </div>
 
-          {leaderboard.map((player, index) => {
-            const isCurrentUser = player.username === yourRank?.username;
-            return (
-              <li
-                key={index}
-                className={`leaderboard-item rank-${index + 1} ${
-                  isCurrentUser ? "highlight_ranking" : ""
-                }`}
-              >
-                <span className="col-rank">{player.rank}</span>
-                <span className="col-medal">
-                  <img
-                    src={
-                      index === 0
-                        ? "/bxh/top1.png"
-                        : index === 1
-                        ? "/bxh/top2.png"
-                        : index === 2
-                        ? "/bxh/top3.png"
-                        : "/bxh/topcuoi.png"
-                    }
-                    alt=""
-                  />
-                </span>
-                <span className="col-username">{player.username}</span>
-                {/* <span className='col-score'>{player.totalBonus}</span> */}
-              </li>
-            );
-          })}
-        </ul>
+      <div className='rx-leaderboard-body'>
+        {loading ? (
+          <div className='rx-spinner'>...</div>
+        ) : (
+          <ul className='rx-list'>
+            <li className='rx-row rx-row-head'>
+              <span className='rx-col-rank'>#</span>
+              <span className='rx-col-user'>
+                {t('nguoidung') || 'Người dùng'}
+              </span>
+              <span className='rx-col-meta'></span>
+            </li>
+            {leaderboard.map((p, i) => {
+              const isMe = p.username === yourRank?.username
+              return (
+                <li key={i} className={`rx-row ${isMe ? 'rx-me' : ''}`}>
+                  <span className='rx-col-rank'>{p.rank || i + 1}</span>
+                  <span className='rx-col-user'>{p.username}</span>
+                  <span className='rx-col-meta'>
+                    {p.totalBonus ? `${p.totalBonus}` : ''}
+                  </span>
+                </li>
+              )
+            })}
+          </ul>
+        )}
 
         {!isInTop10 && yourRank && (
-          <div className="your-rank">
-            <div>#{yourRank.rank}</div>
-            {/* <div style={{ display: "flex", alignItems: "center" }}>
-              {yourRank.totalBonus}
-              <img
-                src="/coin.png"
-                alt=""
-                style={{ width: "30px", height: "30px" }}
-              />
-            </div> */}
-            <div>{yourRank.username}</div>
+          <div className='rx-your-rank'>
+            <div className='rx-your-rank-left'>#{yourRank.rank}</div>
+            <div className='rx-your-rank-center'>{yourRank.username}</div>
+            <div className='rx-your-rank-right'>
+              {yourRank.totalBonus || ''}
+            </div>
           </div>
         )}
       </div>
-    </div>
-  );
+    </section>
+  )
 }
+
 
 export default BangXepHang;

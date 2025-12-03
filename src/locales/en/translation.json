@@ -286,5 +286,6 @@
 "sodthople":"Invalid phone number",
  "chuacnsdt":"You have not updated your phone number",
  "sodtdadk":"The phone number has been registered",
-"mamuahang":"Purchase code"
+"mamuahang":"Purchase code",
+ "loaigd": "Type of transaction"
 }
