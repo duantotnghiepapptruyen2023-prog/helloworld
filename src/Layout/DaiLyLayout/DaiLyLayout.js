@@ -199,6 +199,10 @@ const DaiLyLayout = () => {
               {t('xinchao') || 'Xin chào'},{' '}
               <strong>{userdata?.username || 'User'}</strong>
             </div>
+            <div></div>
+            <div className='logo_hh'>
+              <img src="/logo.png" alt="" />
+            </div>
           </div>
 
           <div className='rx-ref'>

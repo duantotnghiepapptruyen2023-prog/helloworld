@@ -88,7 +88,7 @@
   width: 72px;
   height: 72px;
   border-radius: 14px;
-  background: linear-gradient(135deg, #0a0a0e, #111217);
+  background: linear-gradient(135deg, #333333, #111217);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -195,7 +195,7 @@
 .rx-card {
   flex: 1;
   border-radius: 12px;
-  padding: 12px;
+  padding: 5px;
   color: #06060a;
   min-width: 0
 }
@@ -204,7 +204,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px
 }
 
 .rx-card-count {
@@ -247,6 +246,16 @@
   background: rgba(0, 0, 0, 0.45);
 }
 
+.logo_hh {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}
+
+.logo_hh img {
+  width: 150px;
+}
 
 /* Mobile first adjustments */
 @media(min-width:720px) {
