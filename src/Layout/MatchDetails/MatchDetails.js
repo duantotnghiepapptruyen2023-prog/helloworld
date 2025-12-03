@@ -147,7 +147,6 @@ const MatchDetails = () => {
         <HeaderPhanTySo />
         <div className="game-info-modern">
           <div className="league-bar">
-            <span className="league-dot"></span>
             <h4 className="league-title">{data.leagueName}</h4>
           </div>
           <div className="teams-container">
@@ -157,9 +156,9 @@ const MatchDetails = () => {
               className="team-side"
             />
             <div className="center-info">
-              <div className="date-box">
+              {/* <div className="date-box">
                 <GameDate timestaft={data?.started} />
-              </div>
+              </div> */}
 
               <div className="time-big">
                 <span>

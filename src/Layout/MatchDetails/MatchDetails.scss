@@ -272,15 +272,12 @@
   display: flex;
   gap: 24px;
   padding: 12px 20px;
-  background-color: var(--backgroud-color2);
   border-bottom: 1px solid #1f273e;
   overflow-x: auto; /* Cho phép cuộn ngang khi tràn */
   flex-wrap: nowrap; /* Ngăn các tab xuống dòng */
   white-space: nowrap; /* Ngăn text trong tab xuống dòng */
   scroll-snap-type: x mandatory;
 }
-
-/* Tùy chỉnh thanh cuộn cho Webkit (Chrome, Safari) */
 
 .m-tab::-webkit-scrollbar {
   height: 5px;
@@ -318,6 +315,7 @@
   color: white;
   background-color: var(--button-color);
   padding: 12px;
+  border-radius: 20px;
 }
 
 .m-tab-item.active::after {
@@ -866,8 +864,7 @@
 
 .bet-tile {
   position: relative;
-  // background: #16213e;
-  padding: 18px 8px;
+  padding: 0px 8px;
   text-align: center;
   cursor: pointer;
   transition: all 0.25s ease;
@@ -910,7 +907,6 @@
   align-items: center;
   font-size: 21px;
   font-weight: 900 23px/1 "Inter", system-ui;
-  overflow: hidden;
   border-radius: 8px;
   padding: 0 4px;
 
@@ -919,22 +915,21 @@
       180deg,
       #ffffff 0%,
       #f8fafc 20%,
-      #e0e7ff 40%,
-      #93c5fd 60%,
-      #60a5fa 80%,
-      #3b82f6 100%
+      #ffa052 40%,
+      #fa9a41 60%,
+      #ff8411 80%,
+      #fd6500 100%
     );
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-shadow: 0 2px 8px rgba(59, 130, 246, 0.4);
     position: relative;
     z-index: 2;
   }
 
   .pct {
     font-size: 15px;
-    color: #60a5fa;
+    color: #ff8945;
     margin-left: 0 0 4px 3px;
     font-weight: 700;
     text-shadow: 0 1px 2px #00000088;
@@ -981,7 +976,7 @@
   position: absolute;
   top: 6px;
   right: 6px;
-  background: #fbbf24;
+  background: #0eff36;
   color: black;
   font-size: 9px;
   font-weight: bold;
@@ -990,24 +985,12 @@
 }
 .game-info-modern {
   padding: 0px 10px 18px 10px;
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  margin: 10px;
+
 }
 
 .league-bar {
   display: flex;
   align-items: center;
-
-  .league-dot {
-    width: 10px;
-    height: 10px;
-    background: #00d13f;
-    border-radius: 50%;
-    margin-right: 8px;
-  }
 
   .league-title {
     font-size: 16px;
@@ -1059,14 +1042,14 @@
 }
 
 .date-full {
-  font-size: 14px;
+  font-size: 16px;
   color: #aaa;
   margin-top: 4px;
 }
 .popular-bets-modern {
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  padding: 10px 20px;
   background-color: #1d1f27;
 }
 
@@ -1087,9 +1070,9 @@
 }
 
 .tile-name {
+  width: 100px;
   font-size: 16px;
   color: #fff;
-  margin-bottom: 10px;
 }
 
 
@@ -1110,12 +1093,12 @@
   -webkit-appearance: none;
   width: 20px;
   height: 20px;
-  background: #36c;
+  background: rgb(255, 136, 39);
   border-radius: 50%;
 }
 
 .bet-button button {
-  background-color: #36c;
+  background-color: var(--button-color);
   color: white;
   padding: 5px 10px;
   border: none;
@@ -1129,18 +1112,9 @@
   background-color: #0056b3;
 }
 
-.corner-ribbon {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background-color: #ff4500;
-  color: white;
-  padding: 5px;
-  border-radius: 5px;
-  font-size: 12px;
-}
-.tile-content{
+.tile-content {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  align-items: center;   /* Căn giữa theo chiều dọc */
+  justify-content: space-between; /* Giãn đều theo chiều ngang */
+  padding: 10px;
 }
