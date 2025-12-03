@@ -1,102 +1,74 @@
-.leaderboard {
+.rx-leaderboard {
+    margin-top: 4px
+}
+
+.rx-leaderboard-head h3 {
+    text-align: center;
+    background: linear-gradient(90deg, #071428, #0a3d62);
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 10px;
+    color: white
+}
+
+.rx-leaderboard-body {
     margin-top: 10px;
-    position: relative;
-    color: var(--text-color);
-
-    .leaderboard-list-container {
-        margin-top: 47px;
-        background-color: var(--backgroud-color2);
-        padding: 10px;
-        padding-top: 30px;
-        border-radius: 10px;
-    }
-
-    .leaderboard-title {
-        text-align: center;
-        font-size: 20px;
-        font-weight: bold;
-        position: absolute;
-        top: -35px;
-        left: 16%;
-        border: 2px solid var(--text-color);
-        padding: 10px;
-        background: linear-gradient(to left, #0a3d62, #1e90ff);
-        border-radius: 10px;
-        color: white !important;
-    }
-
-    .leaderboard-list {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-
-        .leaderboard-item {
-            display: flex;
-            align-items: center;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            padding: 6px 15px;
-            margin-bottom: 10px;
-            font-size: 14px;
-            transition: transform 0.2s;
-
-            &:hover {
-                transform: scale(1.02);
-                background: rgba(255, 255, 255, 0.15);
-            }
-
-            // Các cột
-            .col-rank {
-                width: 40px;
-                text-align: center;
-                flex-shrink: 0;
-            }
-
-            .col-medal {
-                width: 40px;
-                text-align: center;
-                flex-shrink: 0;
-
-                img {
-                    width: 30px;
-                    height: auto;
-                }
-            }
-
-            .col-username {
-                flex: 1;
-                padding-left: 10px;
-                text-align: right;
-                font-weight: 500;
-                font-size: 16px;
-            }
-
-            .col-score {
-                width: 100px;
-                text-align: right;
-                flex-shrink: 0;
-                font-weight: bold;
-            }
-        }
-    }
-
-    .your-rank {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 10px;
-        text-align: center;
-        font-size: 18px;
-        font-weight: bold;
-        color: white;
-        background: linear-gradient(to right, #0a3d62, #1e90ff);
-        padding: 15px 10px;
-        border-radius: 10px;
-    }
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+    padding: 10px;
+    border-radius: 12px
 }
 
-.highlight_ranking {
-    background: linear-gradient(to left, #0a3d62, #1e90ff) !important;
-    color: white !important;
-    border-left: 4px solid gold;
+.rx-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px
 }
-  
+
+.rx-row {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.rx-row-head {
+    font-weight: 700;
+    color: var(--neon-yellow);
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01))
+}
+
+.rx-col-rank {
+    width: 38px;
+    text-align: center
+}
+
+.rx-col-user {
+    flex: 1;
+    padding-left: 8px
+}
+
+.rx-col-meta {
+    width: 70px;
+    text-align: right
+}
+
+.rx-me {
+    box-shadow: 0 8px 24px rgba(255, 150, 50, 0.08);
+    border-left: 4px solid var(--neon-yellow);
+}
+
+
+.rx-your-rank {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 12px;
+    padding: 10px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #0a3d62, #1e90ff)
+}

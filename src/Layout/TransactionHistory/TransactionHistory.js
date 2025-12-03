@@ -75,75 +75,133 @@ const TransactionHistory = () => {
   )
 
   return (
-    <div className='transaction-container'>
-      <div className='transaction-header'>
-        <Link to='/member'>
-          <div className='ic-back'>
-            <img src='/back.png' alt='Back' />
-          </div>
+    <div className='tx-wrapper'>
+      {/* HEADER */}
+      <header className='tx-header'>
+        <Link to='/member' className='tx-back'>
+          <img src='/back.png' alt='Back' />
         </Link>
-        <div className='transaction-text'>{t('lsgd')}</div>
-        <div className='deposit-right'></div>
+
+        <h1 className='tx-title'>{t('lsgd')}</h1>
+      </header>
+
+      {/* FILTER BAR */}
+      <div className='tx-filter-bar'>
+        <div
+          className={`tx-filter-item ${filterType === 'all' ? 'active' : ''}`}
+          onClick={() => {
+            setFilterType('all')
+            setCurrentPage(1)
+          }}
+        >
+          {t('tatca')}
+        </div>
+        <div
+          className={`tx-filter-item ${filterType === 'Nạp' ? 'active' : ''}`}
+          onClick={() => {
+            setFilterType('Nạp')
+            setCurrentPage(1)
+          }}
+        >
+          {t('nap')}
+        </div>
+        <div
+          className={`tx-filter-item ${
+            filterType === 'Nạp-Crypto' ? 'active' : ''
+          }`}
+          onClick={() => {
+            setFilterType('Nạp-Crypto')
+            setCurrentPage(1)
+          }}
+        >
+          {t('napcrypto')}
+        </div>
+        <div
+          className={`tx-filter-item ${filterType === 'Rút' ? 'active' : ''}`}
+          onClick={() => {
+            setFilterType('Rút')
+            setCurrentPage(1)
+          }}
+        >
+          {t('rut')}
+        </div>
+        <div
+          className={`tx-filter-item ${
+            filterType === 'Rút-Crypto' ? 'active' : ''
+          }`}
+          onClick={() => {
+            setFilterType('Rút-Crypto')
+            setCurrentPage(1)
+          }}
+        >
+          {t('rutcrypto')}
+        </div>
       </div>
 
-      <div className='custom-table-container'>
-        <div className='filter-container'>
-          <Select
-            id='typeFilter'
-            value={filterType}
-            onChange={value => {
-              setFilterType(value)
-              setCurrentPage(1)
-            }}
-            style={{ width: 180 }}
-          >
-            <Option value='all'>{t('tatca')}</Option>
-            <Option value='Nạp'>{t('nap')}</Option>
-            <Option value='Nạp-Crypto'>{t('napcrypto')}</Option>
-            <Option value='Rút'>{t('rut')}</Option>
-            <Option value='Rút-Crypto'>{t('rutcrypto')}</Option>
-          </Select>
-        </div>
-
+      {/* BODY */}
+      <div className='tx-list'>
         {loading ? (
           <Spin tip={t('dangtai')} />
         ) : error ? (
-          <div className='error-text'>{error}</div>
+          <div className='tx-error'>{error}</div>
         ) : filteredTransactions.length === 0 ? (
-          <div className='empty-text'>{t('kocolsgd')}</div>
+          <div className='tx-empty'>{t('kocolsgd')}</div>
         ) : (
           <>
             {paginatedData.map((item, index) => (
-              <div className='transaction-card' key={index}>
-                <div className='card-title'>
-                  {t(typeTranslationMap[item.type] || 'koxacdinh')}
+              <div className='tx-item' key={index}>
+                <div className='tx-icon'>
+                  {item.type.includes('Nạp') && (
+                    <div className='tx-ic deposit'>↓</div>
+                  )}
+                  {item.type.includes('Rút') && (
+                    <div className='tx-ic withdraw'>↑</div>
+                  )}
                 </div>
-                <div className='card-info'>
-                  <div>
-                    <strong>{t('ngay')}</strong> {item.created}
+
+                <div className='tx-content'>
+                  <div className='tx-row'>
+                    <span className='tx-label'>{t('loaigd')}</span>
+                    <span className='tx-value type'>
+                      {t(typeTranslationMap[item.type])}
+                    </span>
                   </div>
-                  <div>
-                    <strong>{t('sotien')}</strong>{' '}
+
+                  <div className='tx-row'>
+                    <span className='tx-label'>{t('ngay')}</span>
+                    <span className='tx-value'>{item.created}</span>
+                  </div>
+
+                  <div className='tx-row'>
+                    <span className='tx-label'>{t('sotien')}</span>
                     <span
-                      style={{ color: item.amount < 0 ? 'red' : 'green' }}
-                      className='amount_transaction'
+                      className={`tx-value amount ${
+                        item.amount < 0 ? 'red' : 'green'
+                      }`}
                     >
                       {item.amount.toLocaleString('en-US')}
                     </span>
                   </div>
-                  <div>
-                    <strong>{t('trangthai')}</strong>{' '}
-                    {t(statusTranslationMap[item.status] || 'koxacdinh')}
+
+                  <div className='tx-row'>
+                    <span className='tx-label'>{t('trangthai')}</span>
+                    <span
+                      className={`tx-value status ${item.status}`}
+                      data-status={item.status}
+                    >
+                      {t(statusTranslationMap[item.status])}
+                    </span>
                   </div>
                 </div>
               </div>
             ))}
+
             <Pagination
               current={currentPage}
               pageSize={pageSize}
               total={filteredTransactions.length}
               onChange={page => setCurrentPage(page)}
-              className='custom-pagination'
+              className='tx-pagination'
             />
           </>
         )}
