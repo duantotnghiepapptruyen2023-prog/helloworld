@@ -76,9 +76,9 @@ function TrangChuLayout() {
         {tab === "Đá Gà" && <DaGa />}
         {tab === "Lô đề" && <XoSo />}
       </div>
-      <Link to="/cskh" className="vongquay-wrapper">
+      {/* <Link to="/cskh" className="vongquay-wrapper">
         <img src="/vongquay.png" alt="" className="imgvongquay" />
-      </Link>
+      </Link> */}
 
       <Modal
         open={isModalOpen}
