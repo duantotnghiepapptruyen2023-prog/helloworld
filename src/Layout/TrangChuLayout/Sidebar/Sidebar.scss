@@ -46,7 +46,7 @@
 }
 
 .scrollY {
-    grid-auto-flow: row;
+    // grid-auto-flow: row;
     overflow-y: auto;
     overflow-x: hidden;
     scroll-snap-type: y mandatory;
