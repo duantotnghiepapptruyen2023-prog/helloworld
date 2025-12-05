@@ -2,8 +2,8 @@
   display: flex;
   background: #201813;
   border-radius: 12px;
-  padding: 0px 15px;
-  width: 100%;
+  padding: 5px 15px;
+  // width: 100%;
   max-width: 440px;
   box-sizing: border-box;
   color: white;
@@ -37,7 +37,7 @@
 .wallet-actions {
   display: flex;
   justify-content: flex-start;
-  gap: 35px;
+  gap: 25px;
   align-items: center;
 }
 

@@ -3,6 +3,7 @@
   }
   
   .deposit-container {
+    background-image: url('../../../public/cskh/backcskh.png');
     margin: 0 auto;
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -114,8 +115,6 @@
   .deposit-input-qr {
     margin-top: 10px;
     padding: 10px;
-    background-color: #0f2e57;
-    border-radius: 8px;
 
   }
   
@@ -150,7 +149,51 @@
 
   }
   
-  
+  .luuy-box {
+  background: #1f1f1f;
+  padding: 15px;
+  border-radius: 15px;
+  color: #fff;
+  margin-top: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+.luuy-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+.luuy-title img {
+  width: 30px;
+  height: 30px;
+}
+
+.luuy-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.luuy-list li {
+  font-size: 13px;
+  margin-bottom: 6px;
+  color: #ccc;
+  display: flex;
+  gap: 8px;
+  line-height: 1.4;
+}
+
+.luuy-list li::before {
+  content: "◆";       /* dấu kim cương */
+  color: #ff8a00;      /* giống màu icon cảnh báo */
+  font-size: 10px;
+  margin-top: 3px;
+}
+
   .deposit-result {
     font-size: 16px;
     color: var(--text-color);
@@ -172,12 +215,11 @@
   }
   
   .deposit-buttons button {
-    flex: 1 1 calc(25% - 10px);
+    flex: 1 1 calc(30% - 10px);
     padding: 10px;
     font-size: 14px;
     background-color: var(--backgroud-color2);
     color: var(--text-color);
-    border: 1px solid #cecece;
     border-radius: 5px;
     cursor: pointer;
   }

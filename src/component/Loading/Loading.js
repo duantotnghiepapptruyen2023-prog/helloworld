@@ -5,13 +5,9 @@ const Loading = ({ isLoading = true }) => {
   if (!isLoading) return null;
 
   return (
-    <div id="loadingOverlay" className="loading-overlay">
-      <div className="spinner">
-        {Array.from({ length: 12 }).map((_, i) => (
-          <span key={i} />
-        ))}
-      </div>
-    </div>
+   <div class="loading-overlay">
+  <div class="loader"></div>
+</div>
   );
 };
 
