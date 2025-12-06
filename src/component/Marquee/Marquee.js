@@ -9,7 +9,7 @@ function Marquee() {
 
       <div className="marquee_text_wrapper">
         <div className="marquee_text">
-          BT66 – Game Giải Trí Mô Phỏng Tỷ Số Kịch Tính Nhất Hiện Nay! Khuyến mãi ngập tràn theo tháng, thỏa sức cá cược. Nạp tiền ngay !
+          BT66 – Game Giải Trí Phản Tỷ Số Kịch Tính Nhất Hiện Nay! Khuyến mãi ngập tràn theo tháng, thỏa sức cá cược. Nạp tiền ngay !
         </div>
       </div>
     </div>
