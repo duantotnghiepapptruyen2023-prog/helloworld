@@ -18,13 +18,15 @@
 }
 
 .gallery {
-    position: relative;
-    // height: calc(var(--app-height) - var(--header-height) - var(--banner-height) - var(--broadcast-height) - var(--recommend-height) - var(--bottom-nav-height) + var(--fix-typec-main-y));
-    display: grid;
-    grid-auto-flow: column;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
+  display: flex;           
+  overflow-x: auto;       
+  overflow-y: hidden;        
+  white-space: nowrap;       
+  gap: 12px;                
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .not-sticky {
@@ -46,7 +48,7 @@
 }
 
 .scrollY {
-    // grid-auto-flow: row;
+    gap: 5px;
     overflow-y: auto;
     overflow-x: hidden;
     scroll-snap-type: y mandatory;
@@ -80,9 +82,9 @@
     display: flex;
     position: relative;
     border-radius: 0.411rem;
-    touch-action: pan-y;
     box-sizing: border-box;
     flex-direction: column;
+    flex: 0 0 70px;
     justify-content: flex-end;
     align-items: center;
     padding: 0 0 0.3425rem;

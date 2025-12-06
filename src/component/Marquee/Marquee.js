@@ -9,7 +9,7 @@ function Marquee() {
 
       <div className="marquee_text_wrapper">
         <div className="marquee_text">
-          JDT,... Khuyến mãi ngập tràn theo tháng, thỏa sức cá cược. CSKH !
+          BT66 – Game Giải Trí Mô Phỏng Tỷ Số Kịch Tính Nhất Hiện Nay! Khuyến mãi ngập tràn theo tháng, thỏa sức cá cược. Nạp tiền ngay !
         </div>
       </div>
     </div>

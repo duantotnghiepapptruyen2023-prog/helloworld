@@ -494,92 +494,88 @@ const BetModal = ({
   }, [timestaft])
 
   return (
-    <div id="modal" className="modal-detailmatch modern-modal">
-  <div className="modal-content-detailmatch modern-card">
+    <div id="modal" className="betflow-modal">
+  <div className="betflow-container">
 
     {/* HEADER */}
-    <div className="modal-header">
-      <h3 className="modal-title">
-        ⚡ {t('datcuoc')}
-      </h3>
-      <button className="close-btn" onClick={closeModal}>×</button>
+    <div className="betflow-header">
+      <h3 className="betflow-title">{t('datcuoc')}</h3>
+      <button className="betflow-close" onClick={closeModal}>×</button>
     </div>
 
-    <div className="match-info">
-     
-
-      <div className="teams-block">
-         <div className="match-meta">
-        <span className="match-league">{data.leagueName}</span>
-
-        <span className="match-time">
-          {convertTimestampToDateTimeNoYear(data.started)}
-        </span>
-      </div>
-        <div className="team-card">
-          <img src={`${apiUrl}/${data.homeIcon}`} className="team-logo" />
-          <p className="team-name">{data.homeTeam}</p>
-        </div>
-
-        
-
-        <div className="team-card">
-          <img src={`${apiUrl}/${data.awayIcon}`} className="team-logo" />
-          <p className="team-name">{data.awayTeam}</p>
-        </div>
+    {/* MATCH INFO */}
+    <div className="betflow-match-info">
+      <div className="betflow-meta">
+        <span className="betflow-league">{data.leagueName}</span>
+        <span className="betflow-time">{convertTimestampToDateTimeNoYear(data.started)}</span>
       </div>
     </div>
 
-    <div className="bet-section">
-      <div className="input-block">
-        <div>{t('sotien')}</div>
-        <input
-          id="input-sotien"
-          placeholder={t('hanmucgdmin50coin')}
-          type="text"
-          value={betAmount}
-          onChange={handleInputChange}
-        />
+    {/* TEAM BLOCK */}
+    <div className="betflow-teams">
+      <div className="betflow-team-card">
+        <img src={`${apiUrl}/${data.homeIcon}`} className="betflow-team-logo" />
+        <p className="betflow-team-name">{data.homeTeam}</p>
       </div>
 
-      <div className="bet-stats">
-        <div className="stat-item">
-          <p>{t('tylethang')}</p>
-          <span>x{betdata.value}%</span>
-        </div>
-        <div className="stat-item">
-          <p>{t('loinhuankyvong')}</p>
-          <span>{betloinhuan.toFixed(2)}</span>
-        </div>
-      </div>
-
-      <div className="fee-info">
-        <p>({t('phithutuc')}: {betffe.toFixed(2)})</p>
-        <p>({t('loinhuanrong')}: {betloinhuanrong.toFixed(2)})</p>
+      <div className="betflow-team-card">
+        <img src={`${apiUrl}/${data.awayIcon}`} className="betflow-team-logo" />
+        <p className="betflow-team-name">{data.awayTeam}</p>
       </div>
     </div>
 
-    {/* QUICK AMOUNT BUTTONS */}
-    <div className="quick-amount">
+    {/* INPUT BLOCK */}
+    <div className="betflow-input-section">
+      <input
+        className="betflow-input"
+        placeholder={t('hanmucgdmin50coin')}
+        type="text"
+        value={betAmount}
+        onChange={handleInputChange}
+      />
+    </div>
+
+    {/* STATS */}
+    <div className="betflow-stats">
+      <div className="betflow-stat-box">
+        <div className='xbet'>{t('tylethang')}</div>
+        <span>x{betdata.value}%</span>
+      </div>
+      <div className="betflow-stat-box">
+        <div className='xbet'>{t('loinhuankyvong')}</div>
+        <span>{betloinhuan.toFixed(2)}</span>
+      </div>
+      <div className="betflow-stat-box">
+        <div className='xbet'>{t('phithutuc')}</div>
+        <span>{betffe.toFixed(2)}</span>
+      </div>
+      <div className="betflow-stat-box">
+        <div className='xbet'>{t('loinhuanrong')}</div>
+        <span>{betloinhuanrong.toFixed(2)}</span>
+      </div>
+    </div>
+
+    {/* QUICK AMOUNT */}
+    <div className="betflow-quick-buttons">
       {[200, 500, 1000, 2000, 5000].map(num => (
-        <button key={num} onClick={() => handleAmountClick(num)}>
+        <button key={num} onClick={() => handleAmountClick(num)} className="betflow-quick-btn">
           {num.toLocaleString()}
         </button>
       ))}
-      <button onClick={() => handleAmountClick(0)} className="full-btn">
+      <button onClick={() => handleAmountClick(0)} className="betflow-quick-btn betflow-full">
         {t('toanbo')}
       </button>
     </div>
 
     {/* ACTION BUTTONS */}
-    <div className="modal-actions">
-      <button className="btn-cancel" onClick={closeModal}>{t('huybo')}</button>
-      <button className="btn-submit" onClick={validateAndBet}>
-        {t('datcuoc')}
-      </button>
+    <div className="betflow-actions">
+      <button className="betflow-cancel" onClick={closeModal}>{t('huybo')}</button>
+      <button className="betflow-submit" onClick={validateAndBet}>{t('datcuoc')}</button>
     </div>
+
   </div>
 </div>
+
 
   )
 }
