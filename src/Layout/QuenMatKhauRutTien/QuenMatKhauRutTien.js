@@ -104,7 +104,7 @@ const QuenMatKhauRutTien = () => {
                     className='hide-pass-img'
                     onClick={() => setShowNewPassword(!showNewPassword)}
                   >
-                    {showNewPassword ? '🙈' : '👁'}
+                    {showNewPassword ? 'Ẩn' : 'Xem'}
                   </span>
                 </div>
               </div>

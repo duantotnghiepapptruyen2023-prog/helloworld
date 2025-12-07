@@ -10,6 +10,7 @@ import { ModalCapCha } from '../../component/ModalCapCha'
 import { Loading } from '../../component/Loading'
 import { useTranslation } from 'react-i18next'
 import Notify from '../../component/Notify/Notify'
+import ModalChonPhuongThuc from './ModalChonPhuongThuc'
 
 const DepositPage = () => {
   const [amounts, setAmounts] = useState({
@@ -27,6 +28,7 @@ const DepositPage = () => {
     JSON.parse(getFromsessionstorage('data_u')) ||
     JSON.parse(getFromlocalstorage('data_u'))
   const [loading, setloading] = useState(false)
+  const [modalSelect, setModalSelect] = useState(true);
 
   const depositAmounts = [100, 500, 1000, 5000, 10000, 50000, 100000, 200000]
   const depositAmountscrypto = [10, 50, 100, 500, 1000, 2000, 5000, 10000]
@@ -38,7 +40,10 @@ const DepositPage = () => {
     }))
     setReceivedAmount(value * 1000)
   }
-
+const handleSelectMethod = (method) => {
+  setSelectedMethod(method);
+  setModalSelect(false);
+};
   const handleAmountChange = e => {
     const value = e.target?.value?.trim() || ''
     setAmounts(prev => ({
@@ -116,7 +121,10 @@ const DepositPage = () => {
   return (
     <>
       <Loading isLoading={loading} />
-
+      <ModalChonPhuongThuc 
+    isOpen={modalSelect}
+    onSelect={handleSelectMethod}
+/>
       <div className='deposit-container'>
         <div className='deposit-header'>
           <Link to='/member'>
@@ -128,27 +136,6 @@ const DepositPage = () => {
           <div className='deposit-right'></div>
         </div>
 
-        {/* Chọn phương thức nạp tiền */}
-        <div className='deposit-method'>
-          <Link
-            to='#'
-            onClick={() => setSelectedMethod('qr')}
-            className={`deposit-method-item ${selectedMethod === 'qr' ? 'active' : ''
-              }`}
-          >
-            <img src='/quet_ma_qr.png' alt='Quét mã QR' />
-            <div className='deposit-method-name'>{t('quetmaqa')}</div>
-          </Link>
-          <Link
-            to='#'
-            onClick={() => setSelectedMethod('usdt')}
-            className={`deposit-method-item ${selectedMethod === 'usdt' ? 'active' : ''
-              }`}
-          >
-            <img src='/icon_usdt.png' alt='USDT' />
-            <div className='deposit-method-name'>{t('quetusdt')}</div>
-          </Link>
-        </div>
 
         {/* Nội dung nhập tiền */}
         <div
@@ -157,7 +144,7 @@ const DepositPage = () => {
         >
           {selectedMethod === 'qr' ? (
             <div className='deposit-input-qr'>
-              <div className='deposit-result'>Nhập số tiền</div>
+              {/* <div className='deposit-result'>Nhập số tiền</div> */}
               <div className='deposit-input-box'>
                 <input
                   type='number'
@@ -186,12 +173,26 @@ const DepositPage = () => {
                       key={value}
                       onClick={() => handleAmountClick(value)}
                     >
-                      + {value}
+                      {value.toLocaleString('vi-VN')}
                     </button>
                   ))}
                 </div>
               </div>
-              <div className='deposit-warning-text'>{t('loinhac')}</div>
+              {/* <div className='deposit-warning-text'>{t('loinhac')}</div> */}
+              <div className="luuy-box">
+      <div className="luuy-title">
+        <img src="/vnd.webp" alt="warning" />
+        <span>LƯU Ý</span>
+      </div>
+
+      <ul className="luuy-list">
+        <li>Hạn mức giao dịch phụ thuộc vào ngân hàng.</li>
+        <li>Mỗi lần chỉ thực hiện 1 giao dịch.</li>
+        <li>Chỉ giao dịch trong khung giờ quy định (hoặc nhanh 24/7 nếu ngân hàng hỗ trợ).</li>
+        <li>Vui lòng kiểm tra kỹ số tài khoản, nội dung, số tiền trước khi gửi.</li>
+        <li>Phí nạp: 0%</li>
+      </ul>
+    </div>
             </div>
           ) : (
             <div className='deposit-input-qr'>
@@ -215,7 +216,7 @@ const DepositPage = () => {
                       key={value}
                       onClick={() => handleAmountClick(value)}
                     >
-                      + {value}
+                      {value}
                     </button>
                   ))}
                 </div>

@@ -29,7 +29,7 @@ function Sidebar ({ tab, settab }) {
   ]
   return (
     <div className='home_globby_nav'>
-      <div className='gallery not-sticky hide-scrollbar scrollY'>
+      <div className='gallery not-sticky hide-scrollbar'>
         {data.map((item, index) => (
           <div
             className={`navs_slider  slider_sidebar ${

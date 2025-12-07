@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect, useRef } from 'react'
 import './BankInfoUpdate.scss'
 import { Link } from 'react-router-dom'
@@ -52,6 +51,7 @@ const BankInfoUpdate = () => {
         const result = await response.json()
         if (response.ok && result.data) {
           setBankList(result.data)
+          // console.log(result)
         } else {
           console.error(t('loiketnoi'), result)
         }
@@ -150,14 +150,16 @@ const BankInfoUpdate = () => {
                 style={{ width: '100%', fontSize: '16px' }}
                 placeholder={t('chonnganhang')}
               >
-                <Option value='' disabled>
+                <Option value='' disabled >
                   {t('chonnganhang')}
                 </Option>
                 {bankList.map(b => (
-                  <Option key={b.id} value={b.shortName}>
+                  <Option key={b.id} value={b.shortName} >
+                    <img src={b.logo} alt={b.name} style={{ width: 50, marginRight: 8 }} />
                     {`${b.name} - ${b.shortName}`}
                   </Option>
                 ))}
+
               </Select>
             </div>
             <div className='bank-form-group1'>
@@ -183,7 +185,17 @@ const BankInfoUpdate = () => {
             </div>
             <div>
               {user?.bank_account_name && (
-                <small>{t('khongchinhsuabank')}</small>
+                <div className="luuy-box">
+                <div className="luuy-title">
+                  <img src="/vnd.webp" alt="warning" />
+                  <span>LƯU Ý</span>
+                </div>
+
+                <ul className="luuy-list">
+                  <li>Bạn không thể thay đổi thông tin tên ngân hàng.</li>
+                  
+                </ul>
+              </div>
               )}
             </div>
             <button type='submit' className='bank-submit-button'>

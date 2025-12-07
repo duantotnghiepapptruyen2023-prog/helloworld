@@ -173,144 +173,144 @@ const GameHistory = () => {
         </div>
 
         <div className="bet-history-wrapper">
-  {betHistory.length > 0 ? (
-    betHistory.map((game, index) => (
-      <div key={index} className="bet-item-card">
-        
-        {/* Header */}
-        <div className="bet-item-header">
-          <div className="bet-league">
-      <img src='/logo.png' style={{width:70, background: "black"}}></img>
-            <span className="league-title">{game.leageName}</span>
-          </div>
+          {betHistory.length > 0 ? (
+            betHistory.map((game, index) => (
+              <div key={index} className="bet-item-card">
 
-          {canCancelBet(game.datecuoc, game.trangthai, currentTime) && (
-            <button
-              className="btn-cancel-bet"
-              onClick={() => handleCancelBet(game.code)}
-            >
-              {t('huycuoc')}
-            </button>
+                {/* Header */}
+                <div className="bet-item-header">
+                  <div className="bet-league">
+                    <img src='/logo.png' style={{ width: 70, background: "black" }}></img>
+                    <span className="league-title">{game.leageName}</span>
+                  </div>
+
+                  {canCancelBet(game.datecuoc, game.trangthai, currentTime) && (
+                    <button
+                      className="btn-cancel-bet"
+                      onClick={() => handleCancelBet(game.code)}
+                    >
+                      {t('huycuoc')}
+                    </button>
+                  )}
+                </div>
+
+                <div className="bet-match-info">
+                  <span className="teams">
+                    {game.homeName} - {game.awayName}
+                  </span>
+                  <span className="kickoff-time">{game.giodau}</span>
+                </div>
+
+                <div className="bet-type-box">
+                  <div className="bet-type-row">
+                    <span className="bet-type-label">
+                      {t(keoTranslationMap[game.keo] || game.keo)}
+                    </span>
+
+                    <span className="bet-type-value">
+                      {game.keo === t('ftchanle')
+                        ? game.gamekey === '0_0'
+                          ? t('le')
+                          : game.gamekey === '1_1'
+                            ? t('chan')
+                            : game.gamekey
+                        : [t('ftthanghoathua'), t('htthanghoathua')].includes(
+                          game.keo
+                        )
+                          ? game.gamekey === '1_0'
+                            ? t('thang')
+                            : game.gamekey === '0_0'
+                              ? t('hoa')
+                              : game.gamekey === '0_1'
+                                ? t('thua')
+                                : game.gamekey
+                          : game.gamekey}
+                    </span>
+
+                    <span className="bet-profit-rate">{game.profit}%</span>
+                  </div>
+                </div>
+
+                {/* Betting Amounts */}
+                <div className="bet-amount-section">
+                  <div className="amount-row">
+                    <span>{t('tiencuoc')}:</span>
+                    <span className="amount-value">
+                      {Number(game.tiencuoc).toFixed(2).toLocaleString()}
+                    </span>
+                  </div>
+
+                  <div className="amount-row">
+                    <span>{t('phicuoc')}:</span>
+                    <span className="amount-value">
+                      {Number(game.phicuoc).toFixed(2).toLocaleString()}
+                    </span>
+                  </div>
+
+                  <div className="amount-row">
+                    <span>{t('loinhuan')}:</span>
+                    <span className="amount-value">
+                      {Number(game.loinhuan).toFixed(2).toLocaleString()}
+                    </span>
+                  </div>
+
+                  <div className="amount-row">
+                    <span>{t('loinhuanrong')}:</span>
+                    <span className="amount-value">
+                      {Number(game.loinhuanrong).toFixed(2).toLocaleString()}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Status */}
+                <div className="bet-status-row">
+                  <div className="bet-time">
+                    <span>{t('tgiancuoc')}:</span>
+                    <span>{game.datecuoc}</span>
+                  </div>
+
+                  <strong
+                    className={
+                      game.trangthai === 'Thắng'
+                        ? 'status-win'
+                        : game.trangthai === 'Hủy'
+                          ? 'status-cancel'
+                          : game.trangthai === 'Đang chờ kết quả'
+                            ? 'status-pending'
+                            : 'status-lose'
+                    }
+                  >
+                    {t(
+                      game.trangthai === 'Thắng'
+                        ? 'thang'
+                        : game.trangthai === 'Hủy'
+                          ? 'huybo'
+                          : game.trangthai === 'Đang chờ kết quả'
+                            ? 'dangchokq'
+                            : 'thua'
+                    )}
+                  </strong>
+                </div>
+
+                {/* Bao Toan Refund */}
+                {game.keo_tran === game.betType &&
+                  game.baotoan === game.gamekey &&
+                  game.trangthai === 'Thua' && (
+                    <div className="refund-box">{t('hoantienbtv')}</div>
+                  )}
+
+                {/* Footer */}
+                <div className="bet-extra-info">
+                  <p>
+                    {t('matrandau')}: <span className="match-code">{game.code}</span>
+                  </p>
+                </div>
+              </div>
+            ))
+          ) : (
+            <p className="bet-no-data">{t('khongcodulieu')}</p>
           )}
         </div>
-
-        <div className="bet-match-info">
-          <span className="teams">
-            {game.homeName} - {game.awayName}
-          </span>
-          <span className="kickoff-time">{game.giodau}</span>
-        </div>
-
-        <div className="bet-type-box">
-          <div className="bet-type-row">
-            <span className="bet-type-label">
-              {t(keoTranslationMap[game.keo] || game.keo)}
-            </span>
-
-            <span className="bet-type-value">
-              {game.keo === t('ftchanle')
-                ? game.gamekey === '0_0'
-                  ? t('le')
-                  : game.gamekey === '1_1'
-                  ? t('chan')
-                  : game.gamekey
-                : [t('ftthanghoathua'), t('htthanghoathua')].includes(
-                    game.keo
-                  )
-                ? game.gamekey === '1_0'
-                  ? t('thang')
-                  : game.gamekey === '0_0'
-                  ? t('hoa')
-                  : game.gamekey === '0_1'
-                  ? t('thua')
-                  : game.gamekey
-                : game.gamekey}
-            </span>
-
-            <span className="bet-profit-rate">{game.profit}%</span>
-          </div>
-        </div>
-
-        {/* Betting Amounts */}
-        <div className="bet-amount-section">
-          <div className="amount-row">
-            <span>{t('tiencuoc')}:</span>
-            <span className="amount-value">
-              {Number(game.tiencuoc).toFixed(2).toLocaleString()}
-            </span>
-          </div>
-
-          <div className="amount-row">
-            <span>{t('phicuoc')}:</span>
-            <span className="amount-value">
-              {Number(game.phicuoc).toFixed(2).toLocaleString()}
-            </span>
-          </div>
-
-          <div className="amount-row">
-            <span>{t('loinhuan')}:</span>
-            <span className="amount-value">
-              {Number(game.loinhuan).toFixed(2).toLocaleString()}
-            </span>
-          </div>
-
-          <div className="amount-row">
-            <span>{t('loinhuanrong')}:</span>
-            <span className="amount-value">
-              {Number(game.loinhuanrong).toFixed(2).toLocaleString()}
-            </span>
-          </div>
-        </div>
-
-        {/* Status */}
-        <div className="bet-status-row">
-          <div className="bet-time">
-            <span>{t('tgiancuoc')}:</span>
-            <span>{game.datecuoc}</span>
-          </div>
-
-          <strong
-            className={
-              game.trangthai === 'Thắng'
-                ? 'status-win'
-                : game.trangthai === 'Hủy'
-                ? 'status-cancel'
-                : game.trangthai === 'Đang chờ kết quả'
-                ? 'status-pending'
-                : 'status-lose'
-            }
-          >
-            {t(
-              game.trangthai === 'Thắng'
-                ? 'thang'
-                : game.trangthai === 'Hủy'
-                ? 'huybo'
-                : game.trangthai === 'Đang chờ kết quả'
-                ? 'dangchokq'
-                : 'thua'
-            )}
-          </strong>
-        </div>
-
-        {/* Bao Toan Refund */}
-        {game.keo_tran === game.betType &&
-          game.baotoan === game.gamekey &&
-          game.trangthai === 'Thua' && (
-            <div className="refund-box">{t('hoantienbtv')}</div>
-          )}
-
-        {/* Footer */}
-        <div className="bet-extra-info">
-          <p>
-            {t('matrandau')}: <span className="match-code">{game.code}</span>
-          </p>
-        </div>
-      </div>
-    ))
-  ) : (
-    <p className="bet-no-data">{t('khongcodulieu')}</p>
-  )}
-</div>
 
       </div>
     </div>

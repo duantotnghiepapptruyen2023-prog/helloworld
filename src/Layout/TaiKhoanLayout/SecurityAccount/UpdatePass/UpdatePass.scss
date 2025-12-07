@@ -30,10 +30,7 @@
   width: 100%;
 }
 
-.pass-form-group {
-  position: relative;
-  margin-bottom: 20px;
-}
+
 
 .pass-form-input {
   display: flex;
@@ -63,8 +60,8 @@
 .pass-form-input input:not(:placeholder-shown) + label {
   top: -10px;
   font-size: 12px;
-  color: #007bff;
-  background: #fff;
+  color: #ff7300;
+  // background: #fff;
   padding: 0 5px;
 }
 
@@ -106,7 +103,7 @@ label {
   width: 100%;
   padding: 10px;
   border: none;
-  background-color: #007bff;
+  background-color: #ff7300;
   color: white;
   font-size: 16px;
   border-radius: 4px;

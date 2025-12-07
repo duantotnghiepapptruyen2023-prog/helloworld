@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect, useRef } from 'react'
 import './WithDraw.scss'
 import { Link, useNavigate } from 'react-router-dom'
@@ -13,6 +12,7 @@ import { Loading } from '../../component/Loading'
 import { useTranslation } from 'react-i18next'
 import Notify from '../../component/Notify/Notify'
 import { useUser } from '../../component/UserProvider/UserProvider'
+import ModalChonPhuongThuc from '../DepositPage/ModalChonPhuongThuc'
 
 const WithDraw = () => {
   const navigate = useNavigate()
@@ -28,6 +28,7 @@ const WithDraw = () => {
   const [modalCapcha, setIsModalCapcha] = useState(false)
   const { user, fetchUser } = useUser()
   const hasFetched = useRef(false)
+  const [modalSelect, setModalSelect] = useState(true);
 
   const data =
     JSON.parse(getFromsessionstorage('data_u')) ||
@@ -60,7 +61,10 @@ const WithDraw = () => {
     }))
     setReceivedAmount(value * 1000) // Cập nhật receivedAmount
   }
-
+  const handleSelectMethod = (method) => {
+    setMethod(method);
+    setModalSelect(false);
+  };
   const handleChange = e => {
     const numericValue = e.target.value.replace(/[^0-9]/g, '')
     setPassword(numericValue)
@@ -124,6 +128,11 @@ const WithDraw = () => {
   return (
     <>
       <Loading isLoading={loading} />
+      <ModalChonPhuongThuc
+        isOpen={modalSelect}
+        onSelect={handleSelectMethod}
+        page="withdraw"
+      />
       <div className='deposit-container'>
         <div className='deposit-header'>
           <Link to='/member'>
@@ -135,7 +144,7 @@ const WithDraw = () => {
           <div className='deposit-right'></div>
         </div>
 
-        <div className='deposit-method'>
+        {/* <div className='deposit-method'>
           <div
             className={`deposit-method-item ${method === 'qr' ? 'active' : ''}`}
             onClick={() => setMethod('qr')}
@@ -152,7 +161,7 @@ const WithDraw = () => {
             <img src='/icon_usdt.png' alt='USDT' />
             <div className='deposit-method-name'>{t('rutusdt')}</div>
           </div>
-        </div>
+        </div> */}
 
         {method && (
           <>
@@ -205,7 +214,7 @@ const WithDraw = () => {
               <div className='rut-info'>
                 <span className='title-rut'>{t('toidacotherut')}</span>
                 <img
-                  src='/icon_usdt.png'
+                  src='/vnd.webp'
                   alt='USDT'
                   style={{ width: '20px', height: '20px' }}
                 />
@@ -227,7 +236,6 @@ const WithDraw = () => {
                   ))}
                 </div>
               </div>
-              <div className='deposit-warning-text'>{t('moilangd')}</div>
               <div
                 style={{
                   display: 'flex',
@@ -256,7 +264,22 @@ const WithDraw = () => {
                   required
                 />
               </div>
-           
+              <div className="luuy-box">
+                <div className="luuy-title">
+                  <img src="/vnd.webp" alt="warning" />
+                  <span>LƯU Ý</span>
+                </div>
+
+                <ul className="luuy-list">
+                  <li>Hạn mức giao dịch phụ thuộc vào ngân hàng.</li>
+                  <li>Mỗi lần chỉ thực hiện 1 giao dịch.</li>
+                  <li>Chỉ giao dịch trong khung giờ quy định (hoặc nhanh 24/7 nếu ngân hàng hỗ trợ).</li>
+                  <li>Vui lòng kiểm tra kỹ số tài khoản, nội dung, số tiền trước khi gửi.</li>
+                  <li>Phí nạp: 0%</li>
+                </ul>
+              </div>
+
+
             </div>
             <div className='deposit-proceed'>
               <button

@@ -1,50 +1,34 @@
-
 .loading-overlay {
   position: fixed;
-  inset: 0;                 
-  background: rgba(0, 0, 0, .7);
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 9999;
 }
 
-$size: 50px;           
-$bar-w: 5px;            
-$bar-h: 18px;             
-$radius: ($size / 2);        
-$duration: 1.2s;           
-
-.spinner {
+/* Loader blob */
+.loader {
+  width: 60px;
+  height: 60px;
+  background: #ff9012;
+  border-radius: 50%;
   position: relative;
-  width: $size;
-  height: $size;
-
-  span {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: $bar-w;
-    height: $bar-h;
-    margin: -($bar-h / 2) 0 0 -($bar-w / 2);
-    border-radius: $bar-w; 
-    background: #6FB98F;
-    background: linear-gradient(180deg, #afe25b 0%, #6FB98F 100%);
-    transform-origin: 50% calc(50% + $radius - $bar-h / 2);
-    animation: fade $duration linear infinite;
-  }
-
-  @for $i from 1 through 12 {
-    span:nth-child(#{$i}) {
-      transform: rotate(($i - 1) * 30deg)
-                 translateY(-($radius - $bar-h / 2));
-
-      animation-delay: ( ($i - 1) * ($duration / 12) );
-    }
-  }
+  box-shadow:
+    0 0 15px #c57000,
+    0 0 30px #f57c1a;
+  animation: blob 0.9s infinite ease-in-out;
 }
 
-@keyframes fade {
-  0%, 20%, 100% { opacity: .25; }
-  50%           { opacity: 1;   }
+@keyframes blob {
+  0%,
+  100% {
+    transform: scale(1);
+    filter: blur(0px);
+  }
+  50% {
+    transform: scale(1.4);
+    filter: blur(6px);
+  }
 }

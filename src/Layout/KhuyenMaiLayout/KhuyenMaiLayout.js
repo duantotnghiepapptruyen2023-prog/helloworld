@@ -32,7 +32,7 @@ const KhuyenMaiLayout = () => {
       </div>
 
       <div className="container-khuyenmai2">
-        <div className="all-promotions">{t("allkhuyenmai")}</div>
+        {/* <div className="all-promotions">{t("allkhuyenmai")}</div> */}
         <div className="promotion-list">
           {promotions.map((promo) => (
             <div className="promotion-card" key={promo.id}>

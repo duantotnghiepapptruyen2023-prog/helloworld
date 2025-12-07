@@ -135,7 +135,7 @@ const UpdatePassMoney = () => {
                       className='hide-pass-img'
                       onClick={() => setShowOldPassword(!showOldPassword)}
                     >
-                      {showOldPassword ? '🙈' : '👁'}
+                      {showOldPassword ? 'Ẩn' : 'Xem'}
                     </span>
                   </div>
                 </div>
@@ -158,15 +158,15 @@ const UpdatePassMoney = () => {
                     className='hide-pass-img'
                     onClick={() => setShowNewPassword(!showNewPassword)}
                   >
-                    {showNewPassword ? '🙈' : '👁'}
+                    {showNewPassword ? 'Ẩn' : 'Xem'}
                   </span>
                 </div>
               </div>
-              {hasOldPassword && (
+              {/* {hasOldPassword && (
                 <Link to={'/quemkruttien'} className='forgot-password-ruttien'>
                   {t('quenmatkhau')} ?
                 </Link>
-              )}
+              )} */}
 
               <button type='submit' className='pass-submit-button'>
                 {t('xacnhan')}
