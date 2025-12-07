@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react'
 import './Bettinghistory.scss'
@@ -9,8 +10,6 @@ import {
 } from '../../component/MaHoaDuLieu'
 import { useTranslation } from 'react-i18next'
 import { Loading } from '../../component/Loading'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFutbol } from '@fortawesome/free-solid-svg-icons'
 import { Tabs } from 'antd'
 import Notify from '../../component/Notify/Notify'
 const { TabPane } = Tabs
