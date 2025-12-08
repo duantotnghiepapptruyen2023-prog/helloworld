@@ -15,7 +15,7 @@ export default function ModalChonPhuongThuc({ isOpen, onSelect,page }) {
           <div className="modal-title">NẠP/RÚT TIỀN</div>
           <div
             className="modal-close"
-            onClick={() => navigate(-1)}
+            onClick={() => navigate('/')}
           >
             ✕
           </div>
