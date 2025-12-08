@@ -126,6 +126,7 @@ const GameHistory = () => {
     'HT Thắng Hòa Thua': 'htthanghoathua',
     'H2T Tỷ số': 'h2ttyso'
   }
+  console.log('new version đứa nào không nhận làm chó')
   return (
     <div className='container-bettinghistory'>
       <Loading isLoading={loading} />{' '}
