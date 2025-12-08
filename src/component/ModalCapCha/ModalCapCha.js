@@ -96,34 +96,38 @@ const ModalCapCha = ({ isOpen, onClose, Event }) => {
   if (!isOpen) return null
 
   return (
-    <>
-      <Modal
-        open={isOpen}
-        onCancel={onClose}
-        onOk={handleConfirm}
-        wrapClassName='captcha'
-      >
-        <div className='captcha-title'>
-          {t('chonhagiongnhau')}: {answerValues.join(' & ')}
-        </div>
-        <div className='captcha-grid'>
-          {displayImages.map((src, index) => (
-            <img
-              key={index}
-              src={`${apiUrl}/${src.url}`}
-              alt={`captcha-${index}`}
-              className={`captcha-image ${
-                selectedImages.includes(src) ? 'selected' : ''
-              }`}
-              onClick={() => handleImageClick(src)}
-            />
-          ))}
-        </div>
-        {message && (
-          <Notify message={message} type='error' setcontent={setMessage} />
-        )}
-      </Modal>
-    </>
+    <Modal
+      open={isOpen}
+      onCancel={onClose}
+      onOk={handleConfirm}
+      centered
+      wrapClassName='captcha'
+      okText={t('xacnhan')}
+      cancelText={t('huybo')}
+    >
+      <div className='captcha-title'>
+        🔐 {t('chonhagiongnhau')}: {answerValues.join('  &  ')}
+      </div>
+
+      <div className='captcha-grid'>
+        {displayImages.map((src, index) => (
+          <img
+            key={index}
+            src={`${apiUrl}/${src.url}`}
+            alt={`captcha-${index}`}
+            className={`captcha-image ${
+              selectedImages.includes(src) ? 'selected' : ''
+            }`}
+            onClick={() => handleImageClick(src)}
+            loading='lazy'
+          />
+        ))}
+      </div>
+
+      {message && (
+        <Notify message={message} type='error' setcontent={setMessage} />
+      )}
+    </Modal>
   )
 }
 
