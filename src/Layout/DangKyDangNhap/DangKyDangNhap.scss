@@ -6,7 +6,7 @@
         background-color: var(--backgroud-color);
         position: fixed;
         bottom: 0;
-        width: 100%;
+        width: 450px;
     }
 
     .ant-modal {
@@ -118,6 +118,10 @@
         .ant-modal {
             width: 100% !important;
             max-width: unset !important;
+        }
+
+        .div_dangky_dangnhap {
+            width: 100%;
         }
 
     }

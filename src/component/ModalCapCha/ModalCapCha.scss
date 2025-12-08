@@ -1,49 +1,113 @@
-.captcha-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 100px);
-    gap: 5px;
-    justify-content: center;
-}
-
-.captcha-image {
-    width: 100px;
-    height: 100px;
-    cursor: pointer;
-    border-radius: 4px;
-}
-
-.captcha-image.selected {
-    border: 2px solid #0ea5f7;
-}
-
-.captcha-title {
-    color: white;
-    text-align: center;
-    font-size: 16px;
-    margin-bottom: 10px;
-    font-weight: 600;
-}
-
 .captcha {
     z-index: 100000 !important;
-    position: fixed;
-    top: 0;
-    left: 0;
 
     .ant-modal {
         width: 450px !important;
         padding-bottom: 0 !important;
+        top: -100px !important;
+
     }
 
-    div[tabindex="0"] {
-        background-color: #03123d;
+    .ant-btn-default {
+        background: #ff505026;
+        border: 1px solid #ff505066;
+        border-radius: 8px;
+        color: #ff6b6b;
+        cursor: pointer;
+        padding: 6px 14px;
+
+    }
+
+    div[tabindex='0'] {
+        background: rgba(10, 10, 10, 0.9);
+        backdrop-filter: blur(20px);
 
         .ant-modal-content {
-            background-color: #03123d !important;
+            background: linear-gradient(180deg, #0b0b0b, #111);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 140, 0, 0.15);
+            box-shadow: 0 0 40px rgba(255, 136, 0, 0.08);
 
             .ant-modal-close {
-                color: white !important;
+                color: #ff8c00 !important;
+            }
+
+            .ant-modal-footer {
+                border-top: none;
+                padding-top: 0;
             }
         }
+    }
+}
+
+/* Title */
+.captcha-title {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #ff9f1c;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Grid ảnh – đổi layout hoàn toàn */
+.captcha-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    gap: 5px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 16px;
+    justify-content: center;
+}
+
+/* Image card style */
+.captcha-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    filter: grayscale(40%) brightness(0.85);
+    background: #000;
+}
+
+/* Hover */
+.captcha-image:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(255, 140, 0, 0.25);
+    filter: grayscale(0%) brightness(1);
+}
+
+/* Selected – neon style */
+.captcha-image.selected {
+    border: 2px solid #ff8c00;
+    box-shadow:
+        0 0 10px rgba(255, 140, 0, 0.6),
+        inset 0 0 6px rgba(255, 140, 0, 0.3);
+    filter: grayscale(0%) brightness(1.1);
+    transform: scale(1.03);
+}
+
+/* Button OK */
+.ant-modal-footer .ant-btn-primary {
+    background: linear-gradient(135deg, #ff7a00, #ffb000);
+    border: none;
+    border-radius: 12px;
+    height: 44px;
+    font-weight: 600;
+    box-shadow: 0 6px 20px rgba(255, 140, 0, 0.35);
+}
+
+.ant-modal-footer .ant-btn-primary:hover {
+    transform: translateY(-1px);
+}
+
+@media screen and (max-width:768px) {
+    .ant-modal {
+        width: 100%;
     }
 }

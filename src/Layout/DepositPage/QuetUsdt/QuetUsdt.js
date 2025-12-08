@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next'
 import Notify from '../../../component/Notify/Notify'
 
 const QuetUsdt = () => {
-  const usdtAddress = '0x293da07b2686aA53bD7CcafD5Db423939B31B571'
+  const usdtAddress = '0x73fA6Be49c6dbA70f1334aFe8f10428A201a9064'
   const [notification, setNotification] = useState('')
   const { t } = useTranslation()
 
