@@ -128,62 +128,66 @@ const PhanTySoScreen = () => {
         {filteredData.length > 0 ? (
           filteredData.map(item => (
             <Link
-              to={userdata ? `/game/detailmatch/${item.gameId}` : '/login'}
-              key={item.id}
-            >
-              <div className='divitemtyso'>
-                <div
-                  className={`item-tyso  ${
-                    item.baotoan ? 'baotoanborder' : ''
-                  }`}
-                >
-                  <div className='doibongpts'>
-                    <div className='doibong'>
-                      <img src={`${apiUrl}/${item.homeIcon}`} alt='' />
-                      <p>{item.homeTeam}</p>
-                    </div>
-                    <div className='tieudescore'>
-                      <h4>{item.leagueName}</h4>
-                      <p>{convertTimestampToTime(item.started)}</p>
-                      <p className='date'>
-                        {convertTimestampToDate(item.started)}
-                      </p>
-                    </div>
-                    <div className='doibong'>
-                      <img src={`${apiUrl}/${item.awayIcon}`} alt='' />
-                      <p>{item.awayTeam}</p>
-                    </div>
-                  </div>
+  to={userdata ? `/game/detailmatch/${item.gameId}` : '/login'}
+  key={item.id}
+>
+  <div className='wrap-match-card'>
+    <div
+      className={`match-card-main ${item.baotoan ? 'match-protected' : ''}`}
+    >
+      <div className='match-header'>
+        <div className='team-block'>
+          <img src={`${apiUrl}/${item.homeIcon}`} alt='' />
+          <p>{item.homeTeam}</p>
+        </div>
 
-                  <div className='match-footer1'>
-                    <div className='doibong'>
-                      <span className='doibong_span'>
-                        {tabNames.find(i => i.id === item.bet[0].type).name}
-                      </span>
-                      <div className='tyso-tt1'>
-                        {item.bet[0].data.map(i => (
-                          <span key={i.id}>{i.value}</span>
-                        ))}
-                      </div>
-                    </div>
-                    <div className='vs1'>
-                      <button className='btn-dc2'>Đặt cược</button>
-                    </div>
-                    <div className='doibong'>
-                      <span className='doibong_span'>
-                        {tabNames.find(i => i.id === item.bet[1].type).name}
-                      </span>
-                      <div className='tyso-tt1'>
-                        {item.bet[1].data.map(i => (
-                          <span key={i.id}>{i.value}</span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                  <div className='line'></div>
-                </div>
-              </div>
-            </Link>
+        <div className='league-info'>
+          <h4>{item.leagueName}</h4>
+          <p>{convertTimestampToTime(item.started)}</p>
+          <p className='league-date'>
+            {convertTimestampToDate(item.started)}
+          </p>
+        </div>
+
+        <div className='team-block'>
+          <img src={`${apiUrl}/${item.awayIcon}`} alt='' />
+          <p>{item.awayTeam}</p>
+        </div>
+      </div>
+
+      {/* --- BETTING --- */}
+      <div className='match-betting-zone'>
+        <div className='bet-column'>
+          <span className='bet-title'>
+            {tabNames.find(i => i.id === item.bet[0].type).name}
+          </span>
+          <div className='bet-values'>
+            {item.bet[0].data.map(i => (
+              <span key={i.id}>{i.value}</span>
+            ))}
+          </div>
+        </div>
+
+        <div className='bet-action'>
+          <button className='btn-placebet'>Đặt cược</button>
+        </div>
+
+        <div className='bet-column'>
+          <span className='bet-title'>
+            {tabNames.find(i => i.id === item.bet[1].type).name}
+          </span>
+          <div className='bet-values'>
+            {item.bet[1].data.map(i => (
+              <span key={i.id}>{i.value}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</Link>
+
           ))
         ) : (
           <div

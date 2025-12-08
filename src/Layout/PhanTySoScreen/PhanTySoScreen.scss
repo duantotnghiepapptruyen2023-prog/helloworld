@@ -1,6 +1,5 @@
 .lichthidau {
   box-sizing: border-box;
-  padding-top: 70px;
   padding-left: 10px;
   padding-right: 10px;
   min-height: 100vh;
@@ -181,26 +180,34 @@
 }
 
 .item-lich {
-  border-radius: 25px;
-  padding: 10px;
-  font-size: 15px;
-  background: var(--backgroud-color2);
-  flex-shrink: 0;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  min-width: 75px;
+  padding: 8px 12px;
+  background: #202020;
+  border-radius: 20px;
+  border: 1px solid #2b2b2b;
+  color: #cfcfcf;
+  text-align: center;
+  font-size: 14px;
+  cursor: pointer;
+  user-select: none;
+  transition: 0.25s ease;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.25);
 }
 
 .item-lich-active {
-  background: var(--button-color) !important;
-
-  p {
-    color: white !important;
-    font-weight: bold;
-  }
+  background: #ffffff15;
+  backdrop-filter: blur(6px);
+  border: 1px solid #ffffff40;
+  color: #fff;
+  font-weight: 600;
+  transform: translateY(-3px);
+  box-shadow: 
+    0 0 10px rgba(255, 255, 255, 0.25),
+    inset 0 0 12px rgba(255,255,255,0.1);
 }
-
 .item-lich p {
   margin: 0;
-  color: #99b1d8;
+  font-weight: 500;
 }
 
 .ketqua {
@@ -403,4 +410,134 @@
   .doibongketqua {
     gap: 150px;
   }
+}
+.wrap-match-card {
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.match-card-main {
+  background: #1a1a1a;
+  border-radius: 12px;
+  padding: 12px;
+  color: #fff;
+  border: 1px solid #262626;
+  transition: 0.25s;
+}
+
+.match-card:hover {
+  border-color: #ff8c00;
+  transform: translateY(-2px);
+}
+
+.match-protected {
+  border-color: #ff4444 !important;
+}
+
+/* ---- HEADER: 2 team + league info ---- */
+.match-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.team-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 28%;
+}
+
+.team-block img {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 6px;
+}
+
+.team-block p {
+  font-size: 14px;
+  font-weight: 600;
+  color: #e6e6e6;
+}
+
+/* League info */
+.league-info {
+  width: 44%;
+  text-align: center;
+}
+
+.league-info h4 {
+  font-size: 15px;
+  margin-bottom: 2px;
+}
+
+.league-info p {
+  font-size: 13px;
+  opacity: 0.85;
+}
+
+.league-date {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+/* ---- BETTING ZONE ---- */
+.match-betting-zone {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #141414;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.bet-column {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bet-title {
+  font-size: 13px;
+  margin-bottom: 4px;
+  color: #ffa500;
+  font-weight: 600;
+}
+
+.bet-values {
+  display: flex;
+  gap: 6px;
+}
+
+.bet-values span {
+  background: #333;
+  padding: 4px 6px;
+  border-radius: 6px;
+  font-size: 13px;
+}
+
+/* Nút đặt cược */
+.bet-action {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-placebet {
+  padding: 6px 14px;
+  background: #ff8c00;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.btn-placebet:hover {
+  background: #ff7700;
 }
