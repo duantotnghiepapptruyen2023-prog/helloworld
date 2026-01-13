@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import "./BangXepHang.scss";
-import { useTranslation } from "react-i18next";
-import { useEffect, useState } from "react";
+import './BangXepHang.scss'
+import { useTranslation } from 'react-i18next'
+import { useEffect, useState } from 'react'
 
 function BangXepHang ({ userId }) {
   const [leaderboard, setLeaderboard] = useState([])
@@ -61,7 +61,12 @@ function BangXepHang ({ userId }) {
                   <span className='rx-col-rank'>{p.rank || i + 1}</span>
                   <span className='rx-col-user'>{p.username}</span>
                   <span className='rx-col-meta'>
-                    {p.totalBonus ? `${p.totalBonus}` : ''}
+                    {p.totalBonus
+                      ? p.totalBonus.toLocaleString('en-US', {
+                          minimumFractionDigits: 2,
+                          maximumFractionDigits: 2
+                        })
+                      : ''}
                   </span>
                 </li>
               )
@@ -74,7 +79,10 @@ function BangXepHang ({ userId }) {
             <div className='rx-your-rank-left'>#{yourRank.rank}</div>
             <div className='rx-your-rank-center'>{yourRank.username}</div>
             <div className='rx-your-rank-right'>
-              {yourRank.totalBonus || ''}
+              {yourRank.totalBonus.toLocaleString('en-US', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+              }) || ''}
             </div>
           </div>
         )}
@@ -83,5 +91,4 @@ function BangXepHang ({ userId }) {
   )
 }
 
-
-export default BangXepHang;
+export default BangXepHang
