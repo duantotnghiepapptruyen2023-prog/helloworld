@@ -12,16 +12,13 @@
   --text-sub: #aaaaaa;
 }
 
-/* ===== Container ===== */
 .container-bettinghistory {
   width: 100%;
   max-width: 480px;
   min-height: 100vh;
-  background: linear-gradient(180deg, #000000, #050505);
   color: var(--text-main);
 }
 
-/* ===== Header ===== */
 .header-app-bettinghistory {
   position: fixed;
   top: 0;
@@ -139,7 +136,6 @@
   }
 }
 
-/* ===== Cancel Button (Neon Red) ===== */
 .btn-cancel-bet {
   background: linear-gradient(145deg, #ff2c2c, #b30000);
   color: #fff;
@@ -172,7 +168,6 @@
   }
 }
 
-/* ===== Bet Type ===== */
 .bet-type-box {
   margin-top: 10px;
   padding: 12px;
