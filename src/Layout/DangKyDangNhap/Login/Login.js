@@ -120,9 +120,9 @@ function Login ({ handelclose, settab }) {
               onChange={e => setRemember(e.target.checked)}
               style={{ fontSize: 14 }}
             >
-              Ghi nhớ đăng nhập
+             {t('ghinho')}
             </Checkbox>
-            <Link to={'/quenmatkhau'} style={{color:'#f7931e'}}>Quên mật khẩu?</Link>
+            <Link to={'/quenmatkhau'} style={{color:'#f7931e'}}>{t('quenmk')}</Link>
           </div>
 
           <button type='submit' className='btn_login_dangnhap'>

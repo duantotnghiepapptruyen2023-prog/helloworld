@@ -1,29 +1,32 @@
 import './Sidebar.scss'
+import { useTranslation } from 'react-i18next'
 
 function Sidebar ({ tab, settab }) {
+  const { t } = useTranslation()
+
   const data = [
+    // {
+    //   name: 'Phản Tỷ Số',
+    //   icon: 'nav_icons_hot'
+    // },
     {
-      name: 'Phản Tỷ Số',
-      icon: 'nav_icons_hot'
-    },
-    {
-      name: 'Casino',
+      name: t('casino'),
       icon: 'nav_icons_live'
     },
     {
-      name: 'Thể Thao',
+      name: t('thethao'),
       icon: 'nav_icons_thethao'
     },
     {
-      name: 'Slot',
+      name: t('slot'),
       icon: 'nav_icons_xoso'
     },
     {
-      name: 'Lô đề',
+      name: t('lode'),
       icon: 'nav_icons_nohu'
     },
     {
-      name: 'Đá Gà',
+      name: t('daga'),
       icon: 'nav_icons_daga'
     }
   ]

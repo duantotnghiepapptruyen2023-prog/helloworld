@@ -89,7 +89,7 @@ function Register ({ settab }) {
       }
     } catch (error) {
       console.error(error)
-      setError('Lỗi kết nối máy chủ')
+      setError(t("loiketnoi"))
     }
   }
 

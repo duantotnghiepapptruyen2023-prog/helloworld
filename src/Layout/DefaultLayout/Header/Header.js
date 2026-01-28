@@ -110,7 +110,7 @@ function Header() {
                     className='language-item'
                   >
                     <img src='/vina.png' className='imglanguage' />
-                    <span>VN</span>
+                    <span>TL</span>
                   </div>
                 )}
               </div>

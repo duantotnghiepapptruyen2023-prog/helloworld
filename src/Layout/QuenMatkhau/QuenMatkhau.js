@@ -85,7 +85,7 @@ function QuenMatkhau () {
     } catch (error) {
       console.error(error)
       setType('error')
-      setError('Lỗi kết nối máy chủ')
+      setError(t('loiketnoi'))
     }
   }
 

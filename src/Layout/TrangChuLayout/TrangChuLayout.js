@@ -19,13 +19,14 @@ import TheThao from "./TheThao/TheThao";
 import NoHu from "./NoHu/NoHu";
 import Casino from "./Casino/Casino";
 import { Link, Navigate } from "react-router-dom";
+
 // import { useNavigate } from 'react-router-dom'
 function TrangChuLayout() {
   // const navigate = useNavigate()
   const [imageList, setimageList] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { t } = useTranslation();
-  const [tab, settab] = useState("Phản Tỷ Số");
+  const [tab, settab] = useState(t('casino'));
 
   const data_user =
     JSON.parse(getFromlocalstorage("data_u")) ||
@@ -70,11 +71,11 @@ function TrangChuLayout() {
       <div className="home_globby">
         <Sidebar tab={tab} settab={settab} />
         {tab === "Phản Tỷ Số" && <MatchCardList />}
-        {tab === "Thể Thao" && <TheThao />}
-        {tab === "Casino" && <Casino />}
-        {tab === "Slot" && <NoHu />}
-        {tab === "Đá Gà" && <DaGa />}
-        {tab === "Lô đề" && <XoSo />}
+        {tab === t("thethao") && <TheThao />}
+        {tab === t('casino') && <Casino />}
+        {tab === t('slot') && <NoHu />}
+        {tab === t('daga') && <DaGa />}
+        {tab === t('lode') && <XoSo />}
       </div>
       {/* <Link to="/cskh" className="vongquay-wrapper">
         <img src="/vongquay.png" alt="" className="imgvongquay" />
