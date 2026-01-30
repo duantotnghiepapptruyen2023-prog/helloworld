@@ -28,7 +28,7 @@ const DepositPage = () => {
     JSON.parse(getFromsessionstorage('data_u')) ||
     JSON.parse(getFromlocalstorage('data_u'))
   const [loading, setloading] = useState(false)
-  const [modalSelect, setModalSelect] = useState(true);
+  const [modalSelect, setModalSelect] = useState(true)
 
   const depositAmounts = [300, 500, 1000, 5000, 10000, 50000, 100000, 200000]
   const depositAmountscrypto = [10, 50, 100, 500, 1000, 2000, 5000, 10000]
@@ -40,10 +40,10 @@ const DepositPage = () => {
     }))
     setReceivedAmount(value * 1000)
   }
-  const handleSelectMethod = (method) => {
-    setSelectedMethod(method);
-    setModalSelect(false);
-  };
+  const handleSelectMethod = method => {
+    setSelectedMethod(method)
+    setModalSelect(false)
+  }
   const handleAmountChange = e => {
     const value = e.target?.value?.trim() || ''
     setAmounts(prev => ({
@@ -104,8 +104,15 @@ const DepositPage = () => {
         //       : `/usdt-nap-tien/${receivedAmount}?code=${data.transactions.code}`
         //   )
         // }, 1000)
-        window.location.href = data.data.content;
-        console.log(data)
+        if (depositType === 'deposit') {
+          window.location.href = data.data.content
+        } else {
+          setTimeout(() => {
+            navigate(
+              `/usdt-nap-tien/${receivedAmount}?code=${data.transactions.code}`
+            )
+          }, 1000)
+        }
       } else {
         setmessage(data.message || t('napthatbai'))
       }
@@ -120,10 +127,7 @@ const DepositPage = () => {
   return (
     <>
       <Loading isLoading={loading} />
-      <ModalChonPhuongThuc
-        isOpen={modalSelect}
-        onSelect={handleSelectMethod}
-      />
+      <ModalChonPhuongThuc isOpen={modalSelect} onSelect={handleSelectMethod} />
       <div className='deposit-container'>
         <div className='deposit-header'>
           <Link to='/member'>
@@ -135,11 +139,11 @@ const DepositPage = () => {
           <div className='deposit-right'></div>
         </div>
 
-
         {/* Nội dung nhập tiền */}
         <div
-          className={`deposit-input ${selectedMethod === 'qr' ? 'qr-active' : ''
-            }`}
+          className={`deposit-input ${
+            selectedMethod === 'qr' ? 'qr-active' : ''
+          }`}
         >
           {selectedMethod === 'qr' ? (
             <div className='deposit-input-qr'>
@@ -178,24 +182,28 @@ const DepositPage = () => {
                 </div>
               </div>
               {/* <div className='deposit-warning-text'>{t('loinhac')}</div> */}
-              <div className="luuy-box">
-                <div className="luuy-title">
-                  <img src="/vnd.webp" alt="warning" />
+              <div className='luuy-box'>
+                <div className='luuy-title'>
+                  <img src='/vnd.webp' alt='warning' />
                   <span>บันทึก</span>
                 </div>
 
-                <ul className="luuy-list">
-
+                <ul className='luuy-list'>
                   <li>วงเงินในการทำธุรกรรมขึ้นอยู่กับธนาคาร</li>
 
                   <li>อนุญาตให้ทำธุรกรรมได้เพียงหนึ่งครั้งต่อหนึ่งรายการ</li>
 
-                  <li>การทำธุรกรรมจะดำเนินการเฉพาะในช่วงเวลาทำการที่กำหนด (หรือ 24 ชั่วโมง 7 วันต่อสัปดาห์ หากธนาคารรองรับ)</li>
+                  <li>
+                    การทำธุรกรรมจะดำเนินการเฉพาะในช่วงเวลาทำการที่กำหนด (หรือ 24
+                    ชั่วโมง 7 วันต่อสัปดาห์ หากธนาคารรองรับ)
+                  </li>
 
-                  <li>โปรดตรวจสอบหมายเลขบัญชี รายละเอียด และจำนวนเงินอย่างละเอียดก่อนทำการส่ง</li>
+                  <li>
+                    โปรดตรวจสอบหมายเลขบัญชี รายละเอียด
+                    และจำนวนเงินอย่างละเอียดก่อนทำการส่ง
+                  </li>
 
                   <li>ค่าธรรมเนียมการฝาก: 0%</li>
-
                 </ul>
               </div>
             </div>
