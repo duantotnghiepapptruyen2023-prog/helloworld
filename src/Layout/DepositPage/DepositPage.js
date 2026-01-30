@@ -95,7 +95,6 @@ const DepositPage = () => {
       })
 
       const data = await response.json()
-      console.log(selectedMethod)
       if (response.ok) {
         // saveTolocalstorage('data_b', JSON.stringify(data.bankjson))
         // setTimeout(() => {
