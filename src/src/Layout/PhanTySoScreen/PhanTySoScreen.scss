@@ -1,0 +1,543 @@
+.lichthidau {
+  box-sizing: border-box;
+  padding-left: 10px;
+  padding-right: 10px;
+  min-height: 100vh;
+}
+
+.home-globby {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  padding: 10px;
+  height: auto;
+}
+
+.categories {
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.tieudescore {
+  font-size: 16px;
+  font-weight: 700;
+  color: #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  flex: 1;
+
+  h4,
+  p {
+    margin: 0;
+  }
+
+  .date {
+    font-weight: 600 !important;
+
+  }
+}
+
+.tabscore {
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+#core2 {
+  height: 650px;
+}
+
+.tabscore button {
+  background: none;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  position: relative;
+  outline: none;
+  font-weight: 700;
+  font-size: 13px;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.tabscore button.active-tab::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #00abe5;
+  transition: all 0.3s ease;
+  /* Mượt mà khi thay đổi vị trí và kích thước */
+}
+
+.tabscore button.active-tab {
+  color: #00abe5;
+}
+
+.tabscore button:not(.active-tab)::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: #00abe5;
+  transition: all 0.3s ease;
+  /* Mượt mà khi hover */
+}
+
+.tabscore button:hover:not(.active-tab)::after {
+  left: 0;
+  width: 100%;
+}
+
+.divitemtyso {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.line {
+  width: 100%;
+  height: 5px;
+  background-color: var(--backgroud-color2);
+}
+
+.item-tyso {
+  border-radius: 10px;
+  height: auto;
+  padding: 0;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  padding: 5px;
+  width: 100%;
+  font-size: 12px;
+  color: black;
+  margin-top: 10px;
+
+}
+
+.doibongtong {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.divdoibong {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: start;
+}
+
+.doibong {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  flex: 1;
+}
+
+.doibong img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: 2px solid var(--button-color);
+  padding: 3px;
+}
+
+.doibong p,
+.doibong span {
+  color: var(--text-color);
+  font-size: 15px;
+  font-weight: 500;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 150px;
+}
+
+.lichtyso {
+  width: 100%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow: hidden;
+  overflow-x: auto;
+  display: flex;
+  gap: 5px;
+}
+
+.item-lich {
+  min-width: 75px;
+  padding: 8px 12px;
+  background: #202020;
+  border-radius: 20px;
+  border: 1px solid #2b2b2b;
+  color: #cfcfcf;
+  text-align: center;
+  font-size: 14px;
+  cursor: pointer;
+  user-select: none;
+  transition: 0.25s ease;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.25);
+}
+
+.item-lich-active {
+  background: #ffffff15;
+  backdrop-filter: blur(6px);
+  border: 1px solid #ffffff40;
+  color: #fff;
+  font-weight: 600;
+  transform: translateY(-3px);
+  box-shadow: 
+    0 0 10px rgba(255, 255, 255, 0.25),
+    inset 0 0 12px rgba(255,255,255,0.1);
+}
+.item-lich p {
+  margin: 0;
+  font-weight: 500;
+}
+
+.ketqua {
+  display: none;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.divitemketqua {
+  border-radius: 10px;
+  height: auto;
+  padding: 0;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  padding: 5px;
+  background: linear-gradient(30deg, #00abe5, rgb(238, 238, 238));
+  width: 100%;
+  font-size: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.tieudeketqua {
+  border-bottom: 1px solid #00abe5;
+}
+
+.doibongketqua {
+  display: flex;
+  justify-content: space-between;
+  gap: 100px;
+  align-items: center;
+}
+
+.ketquatyso {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.divht {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.datedoibong {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 10px;
+}
+
+.divht p {
+  margin: 3px;
+}
+
+.datedoibong p {
+  margin: 1px;
+}
+
+.ketquatyso h4 {
+  margin: 0;
+}
+
+.inputtk {
+  border-radius: 15px;
+  border: 1px solid #00abe5;
+  display: flex;
+  align-items: center;
+  padding-left: 5px;
+}
+
+.inputtk input {
+  flex: 1;
+  padding-left: 10px;
+  font-size: 16px;
+  color: #99b1d8;
+  border: none;
+  outline: none;
+}
+
+.inputtk img {
+  width: 35px;
+  padding: 5px;
+  cursor: pointer
+}
+
+.list-bottom {
+  .nodata {
+    .data {
+      text-align: center;
+      color: #99b1d8;
+    }
+  }
+}
+
+.opposition {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+.opposition-box {
+  display: flex;
+  border-radius: 15px;
+  overflow: hidden;
+  font-size: 13px;
+  width: fit-content;
+}
+
+.label-box {
+  background-color: var(--button-color);
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+
+
+  .label {
+    // color: white;
+    white-space: nowrap;
+  }
+}
+
+.info-box {
+  background-color: #0e2553;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+
+  .score {
+    color: white;
+    padding-right: 15px;
+  }
+
+  .percent {
+    font-weight: bold;
+    color: white;
+  }
+}
+
+.baotoanborder {
+  border: 2px solid #45d114;
+}
+
+.doibongpts {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.match-footer1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 5px;
+  background-color: #0959c7;
+  gap: 10px;
+  border-top: 1px solid #a7a7a7;
+}
+
+.btn-dc2 {
+  background: linear-gradient(270deg, #0855c4, #1396f8),
+    #1396f8 100%;
+  color: white;
+  border-radius: 10px;
+  padding: 5px 10px;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+}
+
+.tyso-tt1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 10px;
+
+  span:nth-child(1) {
+    color: #00e92f;
+  }
+
+  span:nth-child(2) {
+    color: #42abf9;
+  }
+
+  span:nth-child(3) {
+    color: #dc3333;
+  }
+}
+
+
+@media screen and (min-width: 450px) {
+  .doibongketqua {
+    gap: 150px;
+  }
+}
+.wrap-match-card {
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.match-card-main {
+  background: #1a1a1a;
+  border-radius: 12px;
+  padding: 12px;
+  color: #fff;
+  border: 1px solid #262626;
+  transition: 0.25s;
+}
+
+.match-card:hover {
+  border-color: #ff8c00;
+  transform: translateY(-2px);
+}
+
+.match-protected {
+  border-color: #ff4444 !important;
+}
+
+/* ---- HEADER: 2 team + league info ---- */
+.match-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.team-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 28%;
+}
+
+.team-block img {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 6px;
+}
+
+.team-block p {
+  font-size: 14px;
+  font-weight: 600;
+  color: #e6e6e6;
+}
+
+/* League info */
+.league-info {
+  width: 44%;
+  text-align: center;
+}
+
+.league-info h4 {
+  font-size: 15px;
+  margin-bottom: 2px;
+}
+
+.league-info p {
+  font-size: 13px;
+  opacity: 0.85;
+}
+
+.league-date {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+/* ---- BETTING ZONE ---- */
+.match-betting-zone {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #141414;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.bet-column {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bet-title {
+  font-size: 13px;
+  margin-bottom: 4px;
+  color: #ffa500;
+  font-weight: 600;
+}
+
+.bet-values {
+  display: flex;
+  gap: 6px;
+}
+
+.bet-values span {
+  background: #333;
+  padding: 4px 6px;
+  border-radius: 6px;
+  font-size: 13px;
+}
+
+/* Nút đặt cược */
+.bet-action {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-placebet {
+  padding: 6px 14px;
+  background: #ff8c00;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.btn-placebet:hover {
+  background: #ff7700;
+}

@@ -1,0 +1,75 @@
+body {
+  margin: 0 auto;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #b3b3b3;
+  --backgroud-color: #171717;
+  --backgroud-color2: #1f1f1f;
+  --text-color: #ffffff;
+  --button-color: #ff7700;
+  --vien-color: #00b6d1;
+
+  --custom-home-bg-size: auto 3.22081rem;
+  --custom-home-bg-position: 0.41117rem 100%;
+  --custom-home-bg-color: #f7fcfe;
+  --theme-app-bg: #fafafa;
+  --theme-second_text-color: #676d96;
+  --theme-main-btn: url('../public/btn_bg.png');
+  --theme-select-color: #6297ff;
+  --banner-height: 119px;
+  --broadcast-height: 25px;
+  --recommend-height: 112px;
+  --bottom-nav-height: 62px;
+  --top-nav-height: 892px;
+  --jackpot-height: 0px;
+  --fix-typec-main-y: 2.5px;
+  --app-height: 1259px;
+  --header-height: 52px;
+  --custom-home-active-tab: linear-gradient(to top, #ff7000 0%, rgba(255, 112, 0, 0) 100%);
+  --theme-home-active-tab: var(
+    --custom-home-active-tab,
+    url('../public/activetab.png')
+  );
+  --theme-home-tab-border: 1px linear-gradient(to top, #ff7000 0%, rgba(255, 112, 0, 0) 100%);
+  --theme-home-tab-border-active: var(--theme-home-tab-border);
+  --theme-home-tab: rgba(216, 94, 10, 0.2) ;
+  --theme-home-tab-icon-bg: #858484;
+  --theme-home-nav-shadow: url('../public/iconshadow.png');
+  --theme-home-tab-text-active: #737373;
+  --screenW: 430;
+  --games-block-height: 670px;
+  --theme-input-placeholder-text: #b4b9de;
+  --theme-user_money-color: #3c3c3d;
+  --theme-header-reload: #a3a8b0;
+  --icon-width: 46px;
+  --icon-width-sm: 28px;
+  --theme-nav-bg: linear-gradient(83deg, #3880e5, #759bff);
+  --theme-primary_btn-bg: #4b4fe7;
+  --theme-primary_text-color: #5c6186;
+  --theme-acitve_primary_text-color: #3e4558;
+  --color-primary-color-active: orange;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+a {
+  text-decoration: none;
+}
+p {
+  margin: 0;
+  padding: 0;
+}
+
+@media screen and (max-width: 600px) {
+  #root {
+    flex: 1;
+  }
+  body {
+    background-color: var(--backgroud-color) !important;
+  }
+}

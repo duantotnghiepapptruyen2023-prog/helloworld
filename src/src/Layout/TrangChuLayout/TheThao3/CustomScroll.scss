@@ -1,0 +1,80 @@
+.custom-scroll-wrapper {
+  width: 100%;
+  height: 29vh;
+  overflow: hidden;
+}
+
+.scroll-inner {
+  display: flex;
+  gap: 10px;
+  align-items: stretch; 
+  padding: 0px 10px 0px 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.mt_scroll{
+  margin-top: 1px;
+}
+
+.scroll-inner1 {
+  display: flex;
+  gap: 10px;
+  align-items: stretch;
+  padding: 0px 10px 0px 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.scroll-column1 {
+  flex: 1;
+  display: flex;
+  align-items: stretch;
+}
+
+.scroll-column2 {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  gap: 10px;
+}
+
+.large-item,
+.small-item {
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.large-item {
+  width: 100%;
+  height: 83%;
+}
+
+.small-item {
+  width: 100%;
+  height: 40%;
+}
+
+.item-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+}
+
+.large-item:hover,
+.small-item:hover {
+  transform: scale(1.02);
+}
+
+/* Responsive cho mobile */
+
+/* Responsive cho tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .scroll-inner {
+    gap: 12px;
+  }
+}

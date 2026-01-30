@@ -1,0 +1,91 @@
+.modal-overlay-ptnap {
+  position: fixed;
+  margin: 0 auto;
+   width: 100%; 
+  max-width: 450px;
+  height: 100%;
+background-image: url('../../../public/cskh/backcskh.png');
+display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-method {
+  width: 80%;
+  background: #141414;
+  border-radius: 14px;
+  padding: 20px;
+  color: white;
+  animation: fadeIn 0.25s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-title {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.modal-close {
+  font-size: 22px;
+  cursor: pointer;
+  color: #ffffffcc;
+  transition: 0.2s;
+}
+
+.modal-close:hover {
+  color: white;
+}
+
+.modal-subtitle {
+  font-size: 13px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  color: #cccccc;
+}
+
+.method-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #1f1f1f;
+  padding: 14px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.method-item:hover {
+  background: #262626;
+}
+
+.method-icon img {
+  width: 80px;
+  height: 45px;
+}
+.method-icon-1 img {
+  width: 45px;
+  height: 45px;
+}
+.method-info .method-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: #ff8a00;
+}
+
+.method-info .method-desc {
+  font-size: 12px;
+  color: #bbbbbb;
+  margin-top: 2px;
+}

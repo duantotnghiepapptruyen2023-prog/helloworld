@@ -1,0 +1,116 @@
+.luckywheel-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 20px;
+    background: linear-gradient(135deg, #fceabb, #f8b500);
+    border-radius: 20px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.spin-button {
+    margin-top: 10px;
+    padding: 12px 30px;
+    font-size: 16px;
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.spin-button:hover:enabled {
+    background-color: #ff4c4c;
+}
+
+.spin-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.result-message {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.error-message {
+    margin-top: 20px;
+    font-size: 16px;
+    color: red;
+}
+
+.energy-bar-container {
+    width: 100%;
+    margin-top: 10px;
+    height: 24px;
+    border-radius: 12px;
+    background: #e0e0e0;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    position: relative;
+}
+
+.energy-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg,
+            #00e676,
+            #00c853,
+            #00e676);
+    background-size: 200% 100%;
+    animation: energyMove 2s linear infinite;
+    transition: width 0.4s ease-in-out;
+    border-radius: 12px;
+    box-shadow: 0 0 10px #00c853aa;
+}
+
+@keyframes energyMove {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 200% 50%;
+    }
+}
+
+
+.energy-label {
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+}
+
+.withdraw-button {
+    margin-top: 20px;
+    padding: 10px 24px;
+    font-size: 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.withdraw-button:hover {
+    background-color: #0056b3;
+}
+
+.bhdLno {
+    width: 350px !important;
+    height: 350px !important;
+}
+
+@media screen and (max-width: 600px) {
+    .bhdLno {
+        width: 300px !important;
+        height: 300px !important;
+    }
+
+}

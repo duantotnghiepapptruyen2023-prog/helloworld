@@ -1,0 +1,85 @@
+.rx-leaderboard {
+    margin-top: 4px
+}
+
+.rx-leaderboard-head {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rx-leaderboard-head h3 {
+    text-align: center;
+    background: linear-gradient(135deg, rgb(240, 134, 5), #e58967);
+    color: white;
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 10px;
+}
+
+.rx-leaderboard-body {
+    margin-top: 10px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+    padding: 10px;
+    border-radius: 12px
+}
+
+.rx-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px
+}
+
+.rx-row {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.rx-row-head {
+    font-weight: 700;
+    color: var(--neon-yellow);
+    background: linear-gradient(135deg, #333333, #111217);
+}
+
+.rx-col-rank {
+    width: 38px;
+    text-align: center
+}
+
+.rx-col-user {
+    flex: 1;
+    padding-left: 44px;
+    text-align: center;
+}
+
+.rx-col-meta {
+    width: 70px;
+    text-align: right
+}
+
+.rx-me {
+    box-shadow: 0 8px 24px rgba(255, 150, 50, 0.08);
+    border-left: 4px solid var(--neon-yellow);
+}
+
+
+.rx-your-rank {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 12px;
+    padding: 10px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, rgb(255, 200, 87), rgb(255, 159, 28));
+    box-shadow: 0 0 8px rgba(255, 166, 0, 0.6),
+        0 0 12px rgba(255, 166, 0, 0.3);
+    color: black;
+    font-weight: bold;
+}

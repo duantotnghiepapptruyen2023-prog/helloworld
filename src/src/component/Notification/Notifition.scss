@@ -1,0 +1,80 @@
+.notification-container {
+  position: fixed;
+  top: 60px; /* Đẩy xuống dưới header-qr nếu header cao 50px */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10000;
+  display: flex;
+  justify-content: center;
+}
+
+.notification {
+  background-color: #e6f7ff;
+  color: #1890ff;
+  padding: 10px 20px;
+  border: 1px solid #91d5ff;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 90%;
+}
+
+.notification img {
+  width: 30px;
+}
+
+.notification.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.notification.hidden {
+  display: none;
+}
+
+.divndnotification {
+  max-width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.divndnotification h3 {
+  margin: 2px;
+}
+
+.divndnotification p {
+  margin: 2px;
+}
+
+.close-notifi {
+  position: absolute;
+  right: 0;
+  top: 2px;
+  cursor: pointer;
+  padding: 5px;
+  width: 15px;
+  height: 15px;
+  color: rgb(0, 0, 0);
+}
+
+.thanhthoigian {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 5px;
+  background-color: #1890ff;
+  overflow: hidden;
+  border-radius: 3px;
+}
+
+.progress-bar {
+  position: absolute;
+  right: 0;
+  height: 100%;
+  background-color: #004c94;
+  transition: width 0.1s linear;
+}

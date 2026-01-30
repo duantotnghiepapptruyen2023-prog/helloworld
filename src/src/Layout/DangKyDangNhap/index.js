@@ -1,0 +1,1 @@
+export {default as DangKyDangNhap} from './DangKyDangNhap'

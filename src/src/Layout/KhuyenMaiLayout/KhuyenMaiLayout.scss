@@ -1,0 +1,64 @@
+.container-khuyenmai {
+  min-height: 100vh;
+}
+
+.setting-header {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.setting-ic-back img {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.setting-text {
+  margin-left: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.container-khuyenmai2 {
+  flex: 1;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.all-promotions {
+  background: linear-gradient(to bottom, #afe25b, #6FB98F);
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-bottom: 15px;
+  display: inline-block;
+}
+
+.promotion-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.promotion-card {
+  width: 100%;
+  height: 200px;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.promotion-card img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
