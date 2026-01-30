@@ -20,7 +20,7 @@ const CheckCrypto = async (navigate, setMethod) => {
 
     if (result.crypto) {
       navigate('/member/security/security-bep')
-    } else if (response.ok && result.success === 'thành công') {
+    } else if (response.ok && result.success === 'ความสำเร็จ') {
       setMethod('usdt')
     }
   } catch (error) {

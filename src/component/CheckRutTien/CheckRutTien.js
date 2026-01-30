@@ -34,7 +34,7 @@ const CheckRutTien = async navigate => {
       console.error('การตอบสนอง API ไม่ถูกต้อง:', result)
     }
   } catch (error) {
-    console.error('Lỗi API kiểm tra tài khoản:', error)
+    console.error('การตอบสนอง API ไม่ถูกต้อง:', error)
   }
 }
 

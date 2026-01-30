@@ -41,7 +41,7 @@ const TaiKhoanLayout = () => {
   const handleRutTien = async () => {
     await CheckRutTien(navigate)
   }
- const handleNapTien = async () => {
+  const handleNapTien = async () => {
     await CheckNapTien(navigate)
   }
   const handleRutTienGame = async () => {
@@ -114,9 +114,9 @@ const TaiKhoanLayout = () => {
       <div className='tk-page-container'>
         {/* Header */}
         <div className='tk-header'>
-          <h2>{t("taikhoan")}</h2>
+          <h2>{t('taikhoan')}</h2>
           <button className='tk-logout' onClick={dangxuat}>
-            {t("dangxuat")}
+            {t('dangxuat')}
           </button>
         </div>
 
@@ -149,12 +149,10 @@ const TaiKhoanLayout = () => {
             {t("naptien")}
           </Link> */}
           <button className='tk-btn deposit' onClick={handleNapTien}>
-                        {t("naptien")}
-
+            {t('naptien')}
           </button>
           <button className='tk-btn withdraw' onClick={handleRutTien}>
-                        {t("ruttien")}
-
+            {t('ruttien')}
           </button>
         </div>
 
