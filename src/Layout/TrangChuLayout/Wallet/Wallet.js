@@ -8,6 +8,7 @@ import {
 import CheckRutTien from '../../../component/CheckRutTien/CheckRutTien'
 import { useTranslation } from 'react-i18next'
 import { Notify } from '../../../component/Notify'
+import CheckNapTien from '../../../component/CheckRutTien/CheckNapTien'
 
 const Wallet = () => {
   const userdata =
@@ -19,7 +20,9 @@ const Wallet = () => {
   const handleWithdraw = async () => {
     await CheckRutTien(navigate)
   }
-
+  const handleDeposit = async () => {
+    await CheckNapTien(navigate)
+  }
   return (
     <>
       <div className='wallet'>
@@ -31,14 +34,14 @@ const Wallet = () => {
         </div>
 
         <div className='wallet-actions'>
-          <Link
-            to={userdata ? '/member/deposit' : '/login'}
-            className='nav-item'
-          >
-            <img src='../wallet/nap.png' alt='Nạp tiền' className='icon' />
-            <span>{t('naptien')}</span>
-          </Link>
 
+          <div
+            className='nav-item'
+            onClick={userdata ? handleDeposit : () => navigate('/login')}
+          >
+            <img src='../wallet/nap.png' alt='Rút tiền' className='icon' />
+            <span>{t('naptien')}</span>
+          </div>
           <div
             className='nav-item'
             onClick={userdata ? handleWithdraw : () => navigate('/login')}

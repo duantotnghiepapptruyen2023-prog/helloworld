@@ -81,7 +81,7 @@ const TaiKhoanLayout = () => {
       label: `${t('diachivi')} BEP20`,
       path: '/member/security/security-bep'
     },
-    { icon: './footer/icon_bouns.png', label: t('gthieubb'), path: '/daily' },
+    // { icon: './footer/icon_bouns.png', label: t('gthieubb'), path: '/daily' },
     {
       icon: './account/passrt.png',
       label: t('passruttienthaydoi'),
@@ -130,7 +130,6 @@ const TaiKhoanLayout = () => {
               <div className='tk-username'>{user?.username || 'User_88'}</div>
               <div className='tk-balance'>
                 {Number((user?.coins || 0).toFixed(0)).toLocaleString('vi-VN')}{' '}
-                đ
               </div>
             </div>
           </div>
@@ -149,10 +148,12 @@ const TaiKhoanLayout = () => {
             {t("naptien")}
           </Link> */}
           <button className='tk-btn deposit' onClick={handleNapTien}>
-            {t('naptien')}
+            {t("naptien")}
+
           </button>
           <button className='tk-btn withdraw' onClick={handleRutTien}>
-            {t('ruttien')}
+            {t("ruttien")}
+
           </button>
         </div>
 

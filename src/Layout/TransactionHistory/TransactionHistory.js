@@ -1,6 +1,5 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react'
-import { Pagination, Spin, Select } from 'antd'
+import { Pagination, Spin } from 'antd'
 import { Link } from 'react-router-dom'
 import {
   getFromsessionstorage,
@@ -9,16 +8,16 @@ import {
 import { useTranslation } from 'react-i18next'
 import './TransactionHistory.scss'
 
-const { Option } = Select
-
 const TransactionHistory = () => {
+  const { t } = useTranslation()
+
   const [transactions, setTransactions] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
   const [currentPage, setCurrentPage] = useState(1)
   const [filterType, setFilterType] = useState('all')
+
   const pageSize = 5
-  const { t } = useTranslation()
 
   const storedData =
     getFromsessionstorage('data_u') || getFromlocalstorage('data_u')
@@ -26,22 +25,39 @@ const TransactionHistory = () => {
   const userId = data?.id
   const apiUrl = process.env.REACT_APP_API_URL
 
+  /* ================= MAP I18N ================= */
+
+  const typeTranslationMap = {
+    'Nạp tiền pháp định': 'nap',
+    'Rút tiền pháp định': 'rut',
+    'Nạp-Crypto': 'napcrypto',
+    'Rút-Crypto': 'naprut'
+  }
+
+  const statusTranslationMap = {
+    'Chờ xử lý': 'choxuly',
+    'Thành công': 'thanhcong',
+    'Bị hủy': 'bihuy'
+  }
+
+  /* ================= FETCH ================= */
+
   useEffect(() => {
     if (!userId) {
-      setError(t('kothayiduser'))
+      setError('Không tìm thấy user')
       setLoading(false)
       return
     }
 
     const fetchTransactions = async () => {
       try {
-        const response = await fetch(`${apiUrl}/getlichsugd/${userId}`)
-        if (!response.ok) throw new Error(t('loikhithaydulieu'))
+        const res = await fetch(`${apiUrl}/getlichsugd/${userId}`)
+        if (!res.ok) throw new Error('Lỗi tải dữ liệu')
 
-        const data = await response.json()
+        const data = await res.json()
         setTransactions(data)
-      } catch (error) {
-        setError(error.message || t('kothetaidlgd'))
+      } catch (err) {
+        setError(err.message)
       } finally {
         setLoading(false)
       }
@@ -50,19 +66,7 @@ const TransactionHistory = () => {
     fetchTransactions()
   }, [userId])
 
-  const typeTranslationMap = {
-    'Nạp tiền pháp định': 'nap',
-    'Rút tiền pháp định': 'rut',
-    'Nạp-Crypto': 'napcrypto',
-    'Rút-Crypto': 'rutcrypto'
-  }
-
-  const statusTranslationMap = {
-    'Chờ xử lý': 'choxuly',
-    'Thành công': 'thanhcong',
-    'Bị hủy': 'bihuy',
-    'Không xác định': 'koxacdinh'
-  }
+  /* ================= FILTER ================= */
 
   const filteredTransactions =
     filterType === 'all'
@@ -74,6 +78,8 @@ const TransactionHistory = () => {
     currentPage * pageSize
   )
 
+  /* ================= RENDER ================= */
+
   return (
     <div className='tx-wrapper'>
       {/* HEADER */}
@@ -81,7 +87,6 @@ const TransactionHistory = () => {
         <Link to='/member' className='tx-back'>
           <img src='/back.png' alt='Back' />
         </Link>
-
         <h1 className='tx-title'>{t('lsgd')}</h1>
       </header>
 
@@ -96,15 +101,19 @@ const TransactionHistory = () => {
         >
           {t('tatca')}
         </div>
+
         <div
-          className={`tx-filter-item ${filterType === 'Nạp' ? 'active' : ''}`}
+          className={`tx-filter-item ${
+            filterType === 'Nạp tiền pháp định' ? 'active' : ''
+          }`}
           onClick={() => {
-            setFilterType('Nạp')
+            setFilterType('Nạp tiền pháp định')
             setCurrentPage(1)
           }}
         >
           {t('nap')}
         </div>
+
         <div
           className={`tx-filter-item ${
             filterType === 'Nạp-Crypto' ? 'active' : ''
@@ -116,15 +125,19 @@ const TransactionHistory = () => {
         >
           {t('napcrypto')}
         </div>
+
         <div
-          className={`tx-filter-item ${filterType === 'Rút' ? 'active' : ''}`}
+          className={`tx-filter-item ${
+            filterType === 'Rút tiền pháp định' ? 'active' : ''
+          }`}
           onClick={() => {
-            setFilterType('Rút')
+            setFilterType('Rút tiền pháp định')
             setCurrentPage(1)
           }}
         >
           {t('rut')}
         </div>
+
         <div
           className={`tx-filter-item ${
             filterType === 'Rút-Crypto' ? 'active' : ''
@@ -134,7 +147,7 @@ const TransactionHistory = () => {
             setCurrentPage(1)
           }}
         >
-          {t('rutcrypto')}
+          {t('naprut')}
         </div>
       </div>
 
@@ -163,7 +176,7 @@ const TransactionHistory = () => {
                   <div className='tx-row'>
                     <span className='tx-label'>{t('loaigd')}</span>
                     <span className='tx-value type'>
-                      {t(typeTranslationMap[item.type])}
+                      {t(typeTranslationMap[item.type] || 'naprut')}
                     </span>
                   </div>
 
@@ -185,11 +198,8 @@ const TransactionHistory = () => {
 
                   <div className='tx-row'>
                     <span className='tx-label'>{t('trangthai')}</span>
-                    <span
-                      className={`tx-value status ${item.status}`}
-                      data-status={item.status}
-                    >
-                      {t(statusTranslationMap[item.status])}
+                    <span className='tx-value status'>
+                      {t(statusTranslationMap[item.status] || 'koxacdinh')}
                     </span>
                   </div>
                 </div>

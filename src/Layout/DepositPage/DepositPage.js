@@ -38,7 +38,7 @@ const DepositPage = () => {
       ...prev,
       [selectedMethod]: value
     }))
-    setReceivedAmount(value * 1000)
+    setReceivedAmount(value)
   }
   const handleSelectMethod = method => {
     setSelectedMethod(method)
@@ -50,7 +50,7 @@ const DepositPage = () => {
       ...prev,
       [selectedMethod]: value
     }))
-    setReceivedAmount(Number(value) * 1000)
+    setReceivedAmount(Number(value))
   }
 
   const validateAmount = () => {

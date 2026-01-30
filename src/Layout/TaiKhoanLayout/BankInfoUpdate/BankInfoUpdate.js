@@ -247,11 +247,11 @@ const BankInfoUpdate = () => {
                 <div className="luuy-box">
                   <div className="luuy-title">
                     <img src="/vnd.webp" alt="warning" />
-                    <span>LƯU Ý</span>
+                    <span>บันทึก</span>
                   </div>
 
                   <ul className="luuy-list">
-                    <li>Bạn không thể thay đổi thông tin tên ngân hàng.</li>
+                    <li>คุณไม่สามารถแก้ไขข้อมูลชื่อธนาคารได้</li>
 
                   </ul>
                 </div>

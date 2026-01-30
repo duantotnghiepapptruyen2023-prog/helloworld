@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable no-unused-vars */
 import React, { useState, useEffect, useRef } from 'react'
 import './WithDraw.scss'
 import { Link, useNavigate } from 'react-router-dom'
@@ -50,7 +52,7 @@ const WithDraw = () => {
       ...prev,
       [method]: value // Cập nhật giá trị cho method hiện tại (qr hoặc usdt)
     }))
-    setReceivedAmount(value * 1000) // 1 coin = 1000 VND
+    setReceivedAmount(value) // 1 coin = 1000 VND
   }
 
   const handleInputChange = e => {
@@ -59,7 +61,7 @@ const WithDraw = () => {
       ...prev,
       [method]: value // Cập nhật giá trị cho method hiện tại
     }))
-    setReceivedAmount(value * 1000) // Cập nhật receivedAmount
+    setReceivedAmount(value) // Cập nhật receivedAmount
   }
   const handleSelectMethod = (method) => {
     setMethod(method);
@@ -221,10 +223,10 @@ const WithDraw = () => {
                 <span>{totalBalance} point</span>
               </div>
               <div className='deposit-choice'>
-                <div className='deposit-result'>
+                {/* <div className='deposit-result'>
                   = {receivedAmount.toLocaleString('en-US')} VND
-                </div>
-                <div className='deposit-units-label'>{t('donvitinh')}</div>
+                </div> */}
+                {/* <div className='deposit-units-label'>{t('donvitinh')}</div> */}
                 <div className='deposit-buttons'>
                   {depositAmounts.map(value => (
                     <button
@@ -267,15 +269,15 @@ const WithDraw = () => {
               <div className="luuy-box">
                 <div className="luuy-title">
                   <img src="/vnd.webp" alt="warning" />
-                  <span>LƯU Ý</span>
+                  <span>บันทึก</span>
                 </div>
 
                 <ul className="luuy-list">
-                  <li>Hạn mức giao dịch phụ thuộc vào ngân hàng.</li>
-                  <li>Mỗi lần chỉ thực hiện 1 giao dịch.</li>
-                  <li>Chỉ giao dịch trong khung giờ quy định (hoặc nhanh 24/7 nếu ngân hàng hỗ trợ).</li>
-                  <li>Vui lòng kiểm tra kỹ số tài khoản, nội dung, số tiền trước khi gửi.</li>
-                  <li>Phí nạp: 0%</li>
+                  <li>วงเงินในการทำธุรกรรมขึ้นอยู่กับธนาคาร</li>
+                  <li>อนุญาตให้ทำธุรกรรมได้เพียงหนึ่งครั้งต่อหนึ่งรายการ</li>
+                  <li>การทำธุรกรรมจะดำเนินการเฉพาะในช่วงเวลาทำการที่กำหนด (หรือ 24 ชั่วโมง หากธนาคารรองรับ)</li>
+                  <li>โปรดตรวจสอบหมายเลขบัญชี รายละเอียดการทำธุรกรรม และจำนวนเงินอย่างละเอียดก่อนทำการส่ง</li>
+                  <li>ค่าธรรมเนียมการฝาก: 0%</li>
                 </ul>
               </div>
 
