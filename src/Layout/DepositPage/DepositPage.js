@@ -30,7 +30,7 @@ const DepositPage = () => {
   const [loading, setloading] = useState(false)
   const [modalSelect, setModalSelect] = useState(true);
 
-  const depositAmounts = [100, 500, 1000, 5000, 10000, 50000, 100000, 200000]
+  const depositAmounts = [300, 500, 1000, 5000, 10000, 50000, 100000, 200000]
   const depositAmountscrypto = [10, 50, 100, 500, 1000, 2000, 5000, 10000]
 
   const handleAmountClick = value => {
@@ -40,10 +40,10 @@ const DepositPage = () => {
     }))
     setReceivedAmount(value * 1000)
   }
-const handleSelectMethod = (method) => {
-  setSelectedMethod(method);
-  setModalSelect(false);
-};
+  const handleSelectMethod = (method) => {
+    setSelectedMethod(method);
+    setModalSelect(false);
+  };
   const handleAmountChange = e => {
     const value = e.target?.value?.trim() || ''
     setAmounts(prev => ({
@@ -95,16 +95,16 @@ const handleSelectMethod = (method) => {
       })
 
       const data = await response.json()
-      console.log(data)
+      console.log(selectedMethod)
       if (response.ok) {
-        saveTolocalstorage('data_b', JSON.stringify(data.bankjson))
-        setTimeout(() => {
-          navigate(
-            selectedMethod === 'qr'
-              ? `/qr-nap-tien/${receivedAmount}?code=${data.transactions.code}`
-              : `/usdt-nap-tien/${receivedAmount}?code=${data.transactions.code}`
-          )
-        }, 1000)
+        // saveTolocalstorage('data_b', JSON.stringify(data.bankjson))
+        // setTimeout(() => {
+        //   navigate(
+        //     selectedMethod === 'qr'
+        //       ? `/qr-nap-tien/${receivedAmount}?code=${data.transactions.code}`
+        //       : `/usdt-nap-tien/${receivedAmount}?code=${data.transactions.code}`
+        //   )
+        // }, 1000)
 
         console.log(data)
       } else {
@@ -121,10 +121,10 @@ const handleSelectMethod = (method) => {
   return (
     <>
       <Loading isLoading={loading} />
-      <ModalChonPhuongThuc 
-    isOpen={modalSelect}
-    onSelect={handleSelectMethod}
-/>
+      <ModalChonPhuongThuc
+        isOpen={modalSelect}
+        onSelect={handleSelectMethod}
+      />
       <div className='deposit-container'>
         <div className='deposit-header'>
           <Link to='/member'>
@@ -163,10 +163,10 @@ const handleSelectMethod = (method) => {
                 />
               </div>
               <div className='deposit-choice'>
-                <div className='deposit-result'>
-                  = {Number(receivedAmount).toLocaleString('vi-VN')} VND
-                </div>
-                <div className='deposit-units-label'>{t('donvitinh')}</div>
+                {/* <div className='deposit-result'>
+                  = {Number(receivedAmount).toLocaleString('vi-VN')} 
+                </div> */}
+                {/* <div className='deposit-units-label'>{t('donvitinh')}</div> */}
                 <div className='deposit-buttons'>
                   {depositAmounts.map(value => (
                     <button
@@ -180,23 +180,29 @@ const handleSelectMethod = (method) => {
               </div>
               {/* <div className='deposit-warning-text'>{t('loinhac')}</div> */}
               <div className="luuy-box">
-      <div className="luuy-title">
-        <img src="/vnd.webp" alt="warning" />
-        <span>LƯU Ý</span>
-      </div>
+                <div className="luuy-title">
+                  <img src="/vnd.webp" alt="warning" />
+                  <span>บันทึก</span>
+                </div>
 
-      <ul className="luuy-list">
-        <li>Hạn mức giao dịch phụ thuộc vào ngân hàng.</li>
-        <li>Mỗi lần chỉ thực hiện 1 giao dịch.</li>
-        <li>Chỉ giao dịch trong khung giờ quy định (hoặc nhanh 24/7 nếu ngân hàng hỗ trợ).</li>
-        <li>Vui lòng kiểm tra kỹ số tài khoản, nội dung, số tiền trước khi gửi.</li>
-        <li>Phí nạp: 0%</li>
-      </ul>
-    </div>
+                <ul className="luuy-list">
+
+                  <li>วงเงินในการทำธุรกรรมขึ้นอยู่กับธนาคาร</li>
+
+                  <li>อนุญาตให้ทำธุรกรรมได้เพียงหนึ่งครั้งต่อหนึ่งรายการ</li>
+
+                  <li>การทำธุรกรรมจะดำเนินการเฉพาะในช่วงเวลาทำการที่กำหนด (หรือ 24 ชั่วโมง 7 วันต่อสัปดาห์ หากธนาคารรองรับ)</li>
+
+                  <li>โปรดตรวจสอบหมายเลขบัญชี รายละเอียด และจำนวนเงินอย่างละเอียดก่อนทำการส่ง</li>
+
+                  <li>ค่าธรรมเนียมการฝาก: 0%</li>
+
+                </ul>
+              </div>
             </div>
           ) : (
             <div className='deposit-input-qr'>
-               <div className='deposit-result'>Nhập số tiền</div>
+              <div className='deposit-result'>ป้อนจำนวนเงิน</div>
               <div className='deposit-input-box'>
                 <input
                   type='number'

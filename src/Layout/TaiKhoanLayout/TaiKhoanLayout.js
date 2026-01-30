@@ -10,6 +10,7 @@ import { Loading } from '../../component/Loading'
 import { useTranslation } from 'react-i18next'
 import { useUser } from '../../component/UserProvider/UserProvider'
 import { Notify } from '../../component/Notify'
+import CheckNapTien from '../../component/CheckRutTien/CheckNapTien'
 
 const TaiKhoanLayout = () => {
   const userdata =
@@ -40,7 +41,9 @@ const TaiKhoanLayout = () => {
   const handleRutTien = async () => {
     await CheckRutTien(navigate)
   }
-
+ const handleNapTien = async () => {
+    await CheckNapTien(navigate)
+  }
   const handleRutTienGame = async () => {
     try {
       setisLoading(true)
@@ -63,11 +66,11 @@ const TaiKhoanLayout = () => {
       label: t('lsgd'),
       path: '/member/transactionhistory'
     },
-    {
-      icon: './account/lstc.png',
-      label: t('lstc'),
-      path: '/member/bettinghistory'
-    },
+    // {
+    //   icon: './account/lstc.png',
+    //   label: t('lstc'),
+    //   path: '/member/bettinghistory'
+    // },
     {
       icon: './account/bank.png',
       label: t('tkbank'),
@@ -111,9 +114,9 @@ const TaiKhoanLayout = () => {
       <div className='tk-page-container'>
         {/* Header */}
         <div className='tk-header'>
-          <h2>Tài khoản</h2>
+          <h2>{t("taikhoan")}</h2>
           <button className='tk-logout' onClick={dangxuat}>
-            Đăng xuất
+            {t("dangxuat")}
           </button>
         </div>
 
@@ -142,11 +145,16 @@ const TaiKhoanLayout = () => {
 
         {/* Action Buttons */}
         <div className='tk-actions'>
-          <Link to='/member/deposit' className='tk-btn deposit'>
-            Nạp tiền
-          </Link>
+          {/* <Link to='/member/deposit' className='tk-btn deposit'>
+            {t("naptien")}
+          </Link> */}
+          <button className='tk-btn deposit' onClick={handleNapTien}>
+                        {t("naptien")}
+
+          </button>
           <button className='tk-btn withdraw' onClick={handleRutTien}>
-            Rút tiền
+                        {t("ruttien")}
+
           </button>
         </div>
 

@@ -135,7 +135,7 @@ const UpdatePassMoney = () => {
                       className='hide-pass-img'
                       onClick={() => setShowOldPassword(!showOldPassword)}
                     >
-                      {showOldPassword ? 'Ẩn' : 'Xem'}
+                      {showOldPassword ? '😎' : '👀'}
                     </span>
                   </div>
                 </div>
@@ -158,7 +158,7 @@ const UpdatePassMoney = () => {
                     className='hide-pass-img'
                     onClick={() => setShowNewPassword(!showNewPassword)}
                   >
-                    {showNewPassword ? 'Ẩn' : 'Xem'}
+                    {showNewPassword ? '😎' : '👀'}
                   </span>
                 </div>
               </div>

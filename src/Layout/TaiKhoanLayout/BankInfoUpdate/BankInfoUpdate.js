@@ -18,7 +18,7 @@ const BankInfoUpdate = () => {
   const data =
     JSON.parse(getFromsessionstorage('data_u')) ||
     JSON.parse(getFromlocalstorage('data_u'))
-  const [bankList, setBankList] = useState([])
+  // const [bankList, setBankList] = useState([])
   const [bank, setBank] = useState('')
   const [code, setcode] = useState('')
   const [accountOwner, setAccountOwner] = useState('')
@@ -30,6 +30,65 @@ const BankInfoUpdate = () => {
   const { t } = useTranslation()
   const apiUrl = process.env.REACT_APP_API_URL
   const { user, fetchUser } = useUser()
+
+  const bankList = [
+    {
+      code: 'BAAC',
+      shortName: 'Bank for Agriculture and Agricultural Cooperatives'
+    },
+    {
+      code: 'BBL',
+      shortName: 'Bangkok Bank'
+    },
+    {
+      code: 'BOA',
+      shortName: 'Bank of Ayudhya (Krungsri)'
+    },
+    {
+      code: 'CIMBT',
+      shortName: 'CIMB Thai'
+    },
+    {
+      code: 'GHB',
+      shortName: 'GH Bank'
+    },
+    {
+      code: 'GSB',
+      shortName: 'Government Savings Bank'
+    },
+    {
+      code: 'KNK',
+      shortName: 'Kiatnakin Bank'
+    },
+    {
+      code: 'KSKB',
+      shortName: 'KASIKORN BANK'
+    },
+    {
+      code: 'KTB',
+      shortName: 'KTB Bank'
+    },
+    {
+      code: 'LHB',
+      shortName: 'LH Bank (Land and House Bank)'
+    },
+    {
+      code: 'SCB',
+      shortName: 'Siam Commercial Bank'
+    },
+    {
+      code: 'TISC',
+      shortName: 'TISCO Bank'
+    },
+    {
+      code: 'TMB',
+      shortName: 'TMB Bank'
+    },
+    {
+      code: 'UOBT',
+      shortName: 'UOB Thai'
+    }
+  ]
 
   useEffect(() => {
     if (data && !hasFetched.current) {
@@ -44,24 +103,24 @@ const BankInfoUpdate = () => {
     }
   }, [user])
 
-  useEffect(() => {
-    const fetchBanks = async () => {
-      try {
-        const response = await fetch('https://api.vietqr.io/v2/banks')
-        const result = await response.json()
-        if (response.ok && result.data) {
-          setBankList(result.data)
-          // console.log(result)
-        } else {
-          console.error(t('loiketnoi'), result)
-        }
-      } catch (error) {
-        console.error(t('loiketnoi'), error)
-      }
-    }
+  // useEffect(() => {
+  //   const fetchBanks = async () => {
+  //     try {
+  //       const response = await fetch('https://api.vietqr.io/v2/banks')
+  //       const result = await response.json()
+  //       if (response.ok && result.data) {
+  //         setBankList(result.data)
+  //         // console.log(result)
+  //       } else {
+  //         console.error(t('loiketnoi'), result)
+  //       }
+  //     } catch (error) {
+  //       console.error(t('loiketnoi'), error)
+  //     }
+  //   }
 
-    fetchBanks()
-  }, [])
+  //   fetchBanks()
+  // }, [])
 
   const handleSubmit = async e => {
     e.preventDefault()
@@ -155,8 +214,8 @@ const BankInfoUpdate = () => {
                 </Option>
                 {bankList.map(b => (
                   <Option key={b.id} value={b.shortName} >
-                    <img src={b.logo} alt={b.name} style={{ width: 50, marginRight: 8 }} />
-                    {`${b.name} - ${b.shortName}`}
+                    {/* <img src={b.logo} alt={b.name} style={{ width: 50, marginRight: 8 }} /> */}
+                    {`${b.code} - ${b.shortName}`}
                   </Option>
                 ))}
 
@@ -186,16 +245,16 @@ const BankInfoUpdate = () => {
             <div>
               {user?.bank_account_name && (
                 <div className="luuy-box">
-                <div className="luuy-title">
-                  <img src="/vnd.webp" alt="warning" />
-                  <span>LƯU Ý</span>
-                </div>
+                  <div className="luuy-title">
+                    <img src="/vnd.webp" alt="warning" />
+                    <span>LƯU Ý</span>
+                  </div>
 
-                <ul className="luuy-list">
-                  <li>Bạn không thể thay đổi thông tin tên ngân hàng.</li>
-                  
-                </ul>
-              </div>
+                  <ul className="luuy-list">
+                    <li>Bạn không thể thay đổi thông tin tên ngân hàng.</li>
+
+                  </ul>
+                </div>
               )}
             </div>
             <button type='submit' className='bank-submit-button'>

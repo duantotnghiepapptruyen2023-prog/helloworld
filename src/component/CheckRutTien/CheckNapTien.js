@@ -1,6 +1,6 @@
 import { getFromsessionstorage,getFromlocalstorage } from '../../component/MaHoaDuLieu'
 
-const CheckRutTien = async navigate => {
+const CheckNapTien = async navigate => {
   const data = JSON.parse(getFromsessionstorage('data_u')) || JSON.parse(getFromlocalstorage('data_u'))
   const apiUrl = process.env.REACT_APP_API_URL;
 
@@ -29,7 +29,7 @@ const CheckRutTien = async navigate => {
       (result.success === 'ความสำเร็จ' ||
         result.crypto === 'คุณยังไม่ได้อัปเดตกระเป๋าเงินดิจิทัลของเว็บไซต์')
     ) {
-      navigate('/member/withdraw')
+      navigate('/member/deposit')
     } else {
       console.error('การตอบสนอง API ไม่ถูกต้อง:', result)
     }
@@ -38,4 +38,4 @@ const CheckRutTien = async navigate => {
   }
 }
 
-export default CheckRutTien
+export default CheckNapTien

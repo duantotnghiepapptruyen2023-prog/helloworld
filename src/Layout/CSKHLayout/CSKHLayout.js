@@ -7,11 +7,11 @@ const CSKHLayoutNew = () => {
   const { t } = useTranslation()
 
   const hoTroList = [
-    { icon: '/cskh/cskh.webp', text: t('gtnm'), link: 'https://t.me/ad01_bt66' },
+    { icon: '/cskh/cskh.webp', text: t('gtnm'), link: 'https://t.me/bt66ad' },
     {
       icon: '/cskh/cskh.webp',
       text: 'BT66 - 02',
-      link: 'https://t.me/ad02_bt66'
+      link: 'https://t.me/bt66cs1'
     }
   ]
 
@@ -19,12 +19,12 @@ const CSKHLayoutNew = () => {
     {
       icon: '/cskh/telecn.png',
       text: t('thongbao'),
-      link: 'https://t.me/BT66_PTS_CN'
+      link: 'https://t.me/bt66ad'
     },
     {
       icon: '/cskh/telegr.png',
       text: t('trochuyen'),
-      link: 'https://t.me/BT66_PTS_VN'
+      link: 'https://t.me/bt66ad'
     }
   ]
 
