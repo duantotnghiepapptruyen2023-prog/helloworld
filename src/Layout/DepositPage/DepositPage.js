@@ -104,7 +104,7 @@ const DepositPage = () => {
         //       : `/usdt-nap-tien/${receivedAmount}?code=${data.transactions.code}`
         //   )
         // }, 1000)
-
+        window.location.href = data.data.content;
         console.log(data)
       } else {
         setmessage(data.message || t('napthatbai'))
