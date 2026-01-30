@@ -1,1 +1,0 @@
-export {default as QuenMatkhau} from './QuenMatkhau'

@@ -1,5 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable no-unused-vars */
 import React, { useState, useEffect, useRef } from 'react'
 import './WithDraw.scss'
 import { Link, useNavigate } from 'react-router-dom'
@@ -52,7 +50,7 @@ const WithDraw = () => {
       ...prev,
       [method]: value // Cập nhật giá trị cho method hiện tại (qr hoặc usdt)
     }))
-    setReceivedAmount(value) // 1 coin = 1000 VND
+    setReceivedAmount(value * 1000) // 1 coin = 1000 VND
   }
 
   const handleInputChange = e => {
@@ -61,7 +59,7 @@ const WithDraw = () => {
       ...prev,
       [method]: value // Cập nhật giá trị cho method hiện tại
     }))
-    setReceivedAmount(value) // Cập nhật receivedAmount
+    setReceivedAmount(value * 1000) // Cập nhật receivedAmount
   }
   const handleSelectMethod = (method) => {
     setMethod(method);
@@ -74,7 +72,7 @@ const WithDraw = () => {
 
   const handleWithdraw = async () => {
     const currentAmount = amounts[method] // Lấy giá trị tương ứng với method
-    if (currentAmount < 50) {
+    if (currentAmount < 300) {
       setNotification(t('sotientoithieu100'), 'error')
       return
     }

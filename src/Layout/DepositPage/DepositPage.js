@@ -38,7 +38,7 @@ const DepositPage = () => {
       ...prev,
       [selectedMethod]: value
     }))
-    setReceivedAmount(value)
+    setReceivedAmount(value * 1000)
   }
   const handleSelectMethod = method => {
     setSelectedMethod(method)
@@ -50,7 +50,7 @@ const DepositPage = () => {
       ...prev,
       [selectedMethod]: value
     }))
-    setReceivedAmount(Number(value))
+    setReceivedAmount(Number(value) * 1000)
   }
 
   const validateAmount = () => {
@@ -60,7 +60,7 @@ const DepositPage = () => {
       return false
     }
 
-    const minAmount = selectedMethod === 'qr' ? 100 : 5
+    const minAmount = selectedMethod === 'qr' ? 300 : 5
 
     if (Number(currentAmount) < minAmount) {
       setmessage(
