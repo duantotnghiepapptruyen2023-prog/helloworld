@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect, useRef } from 'react'
 import './WithDraw.scss'
 import { Link, useNavigate } from 'react-router-dom'
@@ -12,7 +13,6 @@ import { Loading } from '../../component/Loading'
 import { useTranslation } from 'react-i18next'
 import Notify from '../../component/Notify/Notify'
 import { useUser } from '../../component/UserProvider/UserProvider'
-import ModalChonPhuongThuc from '../DepositPage/ModalChonPhuongThuc'
 
 const WithDraw = () => {
   const navigate = useNavigate()
@@ -28,7 +28,6 @@ const WithDraw = () => {
   const [modalCapcha, setIsModalCapcha] = useState(false)
   const { user, fetchUser } = useUser()
   const hasFetched = useRef(false)
-  const [modalSelect, setModalSelect] = useState(true);
 
   const data =
     JSON.parse(getFromsessionstorage('data_u')) ||
@@ -61,10 +60,7 @@ const WithDraw = () => {
     }))
     setReceivedAmount(value * 1000) // Cập nhật receivedAmount
   }
-  const handleSelectMethod = (method) => {
-    setMethod(method);
-    setModalSelect(false);
-  };
+
   const handleChange = e => {
     const numericValue = e.target.value.replace(/[^0-9]/g, '')
     setPassword(numericValue)
@@ -72,7 +68,7 @@ const WithDraw = () => {
 
   const handleWithdraw = async () => {
     const currentAmount = amounts[method] // Lấy giá trị tương ứng với method
-    if (currentAmount < 300) {
+    if (currentAmount < 50) {
       setNotification(t('sotientoithieu100'), 'error')
       return
     }
@@ -128,11 +124,6 @@ const WithDraw = () => {
   return (
     <>
       <Loading isLoading={loading} />
-      <ModalChonPhuongThuc
-        isOpen={modalSelect}
-        onSelect={handleSelectMethod}
-        page="withdraw"
-      />
       <div className='deposit-container'>
         <div className='deposit-header'>
           <Link to='/member'>
@@ -144,7 +135,7 @@ const WithDraw = () => {
           <div className='deposit-right'></div>
         </div>
 
-        {/* <div className='deposit-method'>
+        <div className='deposit-method'>
           <div
             className={`deposit-method-item ${method === 'qr' ? 'active' : ''}`}
             onClick={() => setMethod('qr')}
@@ -161,7 +152,7 @@ const WithDraw = () => {
             <img src='/icon_usdt.png' alt='USDT' />
             <div className='deposit-method-name'>{t('rutusdt')}</div>
           </div>
-        </div> */}
+        </div>
 
         {method && (
           <>
@@ -214,17 +205,17 @@ const WithDraw = () => {
               <div className='rut-info'>
                 <span className='title-rut'>{t('toidacotherut')}</span>
                 <img
-                  src='/vnd.webp'
+                  src='/icon_usdt.png'
                   alt='USDT'
                   style={{ width: '20px', height: '20px' }}
                 />
                 <span>{totalBalance} point</span>
               </div>
               <div className='deposit-choice'>
-                {/* <div className='deposit-result'>
-                  = {receivedAmount.toLocaleString('en-US')} VND
-                </div> */}
-                {/* <div className='deposit-units-label'>{t('donvitinh')}</div> */}
+                <div className='deposit-result'>
+                  = {receivedAmount.toLocaleString('en-US')} baht
+                </div>
+                <div className='deposit-units-label'>{t('donvitinh')}</div>
                 <div className='deposit-buttons'>
                   {depositAmounts.map(value => (
                     <button
@@ -236,6 +227,7 @@ const WithDraw = () => {
                   ))}
                 </div>
               </div>
+              <div className='deposit-warning-text'>{t('moilangd')}</div>
               <div
                 style={{
                   display: 'flex',
@@ -264,22 +256,6 @@ const WithDraw = () => {
                   required
                 />
               </div>
-              <div className="luuy-box">
-                <div className="luuy-title">
-                  <img src="/vnd.webp" alt="warning" />
-                  <span>บันทึก</span>
-                </div>
-
-                <ul className="luuy-list">
-                  <li>วงเงินในการทำธุรกรรมขึ้นอยู่กับธนาคาร</li>
-                  <li>อนุญาตให้ทำธุรกรรมได้เพียงหนึ่งครั้งต่อหนึ่งรายการ</li>
-                  <li>การทำธุรกรรมจะดำเนินการเฉพาะในช่วงเวลาทำการที่กำหนด (หรือ 24 ชั่วโมง หากธนาคารรองรับ)</li>
-                  <li>โปรดตรวจสอบหมายเลขบัญชี รายละเอียดการทำธุรกรรม และจำนวนเงินอย่างละเอียดก่อนทำการส่ง</li>
-                  <li>ค่าธรรมเนียมการฝาก: 0%</li>
-                </ul>
-              </div>
-
-
             </div>
             <div className='deposit-proceed'>
               <button

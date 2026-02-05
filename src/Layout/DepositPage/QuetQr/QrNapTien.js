@@ -5,15 +5,16 @@ import CountdownTimer from '../../../component/CountDownTimer/CountDownTimer'
 import { useTranslation } from 'react-i18next'
 // import axios from "axios";
 // import ModalSuccess from "./ModalSuccess/ModalSuccess";
+import { useSearchParams } from 'react-router-dom'
+
 import Notify from '../../../component/Notify/Notify'
-import { getFromlocalstorage } from '../../../component/MaHoaDuLieu'
 const QrNapTien = () => {
   const [notification, setNotification] = useState('')
   const { amount } = useParams()
   // const location = useLocation()
   const { t } = useTranslation()
-  const bankjson = JSON.parse(getFromlocalstorage('data_b'))
-  console.log(bankjson)
+  const [searchParams] = useSearchParams()
+  const referralCode = searchParams.get('code')
 
   // const [transactionVerified, setTransactionVerified] = useState(false);
 
@@ -86,21 +87,21 @@ const QrNapTien = () => {
       <div className='body-qr'>
         <div className='maqr'>
           <h4>{t('quetmadeck')}</h4>
-          <img src={`${bankjson.qrImageUrl}`} alt='QR Code' />
+          {/* <img src={`${bankjson.qrImageUrl}`} alt='QR Code' /> */}
 
           <div className='uniform'>
             <p>
-              {t('nganhang')}: <b>ACB</b>
+              {t('nganhang')}: <b>SCB</b>
             </p>
             <p
               className='usdt-address'
               style={{ marginBottom: '10px', marginTop: '10px' }}
             >
-              {t('stk')}: <b>{bankjson.BankAccountNumber}</b>
+              {t('stk')}: <b>{'3392815339'}</b>
               <img
                 src='/copy.png'
                 className='icon-copy'
-                onClick={() => copyToClipboard(`${bankjson.BankAccountNumber}`)}
+                onClick={() => copyToClipboard(`${'3392815339'}`)}
                 alt='Copy'
               />
             </p>
@@ -110,26 +111,28 @@ const QrNapTien = () => {
               className='usdt-address'
               style={{ marginBottom: '10px', marginTop: '10px' }}
             >
-              <b>{bankjson.BankAccountName}</b>
+              <b>{'Klap Ma Ruay Wood Pallet Co., Ltd.'}</b>
               <img
                 src='/copy.png'
                 className='icon-copy'
-                onClick={() => copyToClipboard(`${bankjson.BankAccountName}`)}
+                onClick={() =>
+                  copyToClipboard(`${'Klap Ma Ruay Wood Pallet Co., Ltd.'}`)
+                }
                 alt='Copy'
               />
             </p>
             <p>
-              {t('sotien')}: <b>{parseInt(amount).toLocaleString()} VND</b>
+              {t('sotien')}: <b>{parseInt(amount).toLocaleString()} Baht</b>
             </p>
             <p
               className='usdt-address'
               style={{ marginBottom: '10px', marginTop: '10px' }}
             >
-              {t('noidung')}: <b>{bankjson.OrderNo}</b>
+              {t('noidung')}: <b>{`Deposit ${referralCode}`}</b>
               <img
                 src='/copy.png'
                 className='icon-copy'
-                onClick={() => copyToClipboard(`${bankjson.OrderNo}`)}
+                onClick={() => copyToClipboard(`Deposit ${referralCode}`)}
                 alt='Copy'
               />
             </p>
